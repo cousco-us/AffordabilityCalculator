@@ -1,43 +1,40 @@
-const fs = require('fs');
-const csv = require('csv-parser');
-const p = require('path');
+const db = require('../db.js');
+const mongoose = require('mongoose');
 
-const path = p.join(__dirname, 'houses.csv');
-
-
-const db = require('../db.js')
-const knex = require('knex')
-// const knex = require('knex')({
-//   client: 'sqlite3',
-//   connection: {
-//     filename: './data.db',
-//   },
+const housesSchema = new mongoose.Schema({
+  price: Number,
+  zipcode: String,
+  state: String
+});
+const House = mongoose.model('House', housesSchema);
+// // test //
+// const testHouse = new House({ price: 6250000, state: 'NY', zipcode: '10983' });
+// testHouse.save((err, testRecord) => {
+//   if (err) return err;
+//   return testRecord;
 // });
 
-
-
-
-// fs.readFile(path, (err, csv) =>{
-//   if (err) throw err;
-//   console.log(JSON.stringify(csv));
+const taxesSchema = new mongoose.Schema({
+  state: String,
+  effective_tax_rate: Number
+});
+const Tax = mongoose.model('Tax', taxesSchema);
+// // test //
+// const testTax = new Tax({state: 'NY', effective_tax_rate: 0.0171})
+// testTax.save((err, testRecord) => {
+//   if (err) return console.error(err)
+//   console.log('successfully created ', testRecord)
 // });
 
-/////////////////////    /////////////////////
-/////////////////////    /////////////////////
-/////////////////////    /////////////////////
-/////////////////////    /////////////////////
-
-// fs.readdir(__dirname, (err, files) => {
-//   if (err) { console.log(err) }
-//   files.forEach(file => {
-//     if (file.slice(-4) === '.csv') {
-//       const path = p.join(__dirname, file)
-//       fs.createReadStream(path)
-//       .on('error', () => {console.log('error')})
-//       .pipe(csv())
-//       .on('data', (row) => {console.log(row);})
-//     }
-//   })
+const loansSchema = new mongoose.Schema({
+  type: String,
+  years: Number,
+  interest_rate: Number
+});
+const Loan = mongoose.model('Loan', loansSchema);
+// // test //
+// const testLoan = new Loan({type: '30-year fixed', years: 30, interest_rate: 0.0338})
+// testLoan.save((err, testRecord) => {
+//   if (err) return console.error(err)
+//   console.log('successfully created ', testRecord)
 // })
-
-
