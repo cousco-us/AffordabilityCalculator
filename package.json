@@ -10,10 +10,16 @@
   "scripts": {
     "build-db": "mysql -u root -p database/schema.sql"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "csv-parser": "^3.0.0",
     "express": "^4.17.1",
+    "husky": "^4.3.7",
     "knex": "^0.21.15",
     "mysql": "^2.18.1"
   },
