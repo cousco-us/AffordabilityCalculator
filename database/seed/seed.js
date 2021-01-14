@@ -1,40 +1,43 @@
+const path = require('path');
+const csv = require('csvtojson');
 const db = require('../db.js');
-const mongoose = require('mongoose');
 
-const housesSchema = new mongoose.Schema({
-  price: Number,
-  zipcode: String,
-  state: String
-});
-const House = mongoose.model('House', housesSchema);
-// // test //
-// const testHouse = new House({ price: 6250000, state: 'NY', zipcode: '10983' });
-// testHouse.save((err, testRecord) => {
-//   if (err) return err;
-//   return testRecord;
-// });
+const seedHouses = () => {
+  db.House.deleteMany({}, () => {});
+  const housesCsv = path.join(__dirname, 'houses.csv');
+  csv().fromFile(housesCsv)
+    .then((housesJson) => {
+      db.House.insertMany(housesJson, (err, success) => {
+        if (err) { return err; }
+        return `Successfully created ${success.length} House records`;
+      });
+    });
+};
 
-const taxesSchema = new mongoose.Schema({
-  state: String,
-  effective_tax_rate: Number
-});
-const Tax = mongoose.model('Tax', taxesSchema);
-// // test //
-// const testTax = new Tax({state: 'NY', effective_tax_rate: 0.0171})
-// testTax.save((err, testRecord) => {
-//   if (err) return console.error(err)
-//   console.log('successfully created ', testRecord)
-// });
+const seedTaxes = () => {
+  db.Tax.deleteMany({}, () => {});
+  const taxesCsv = path.join(__dirname, 'taxes.csv');
+  csv().fromFile(taxesCsv)
+    .then((taxesJson) => {
+      db.Tax.insertMany(taxesJson, (err, success) => {
+        if (err) { return err; }
+        return `Successfully created ${success.length} Tax records`;
+      });
+    });
+};
 
-const loansSchema = new mongoose.Schema({
-  type: String,
-  years: Number,
-  interest_rate: Number
-});
-const Loan = mongoose.model('Loan', loansSchema);
-// // test //
-// const testLoan = new Loan({type: '30-year fixed', years: 30, interest_rate: 0.0338})
-// testLoan.save((err, testRecord) => {
-//   if (err) return console.error(err)
-//   console.log('successfully created ', testRecord)
-// })
+const seedLoans = () => {
+  db.Loan.deleteMany({}, () => {});
+  const loansCsv = path.join(__dirname, 'loans.csv');
+  csv().fromFile(loansCsv)
+    .then((loansJson) => {
+      db.Loan.insertMany(loansJson, (err, success) => {
+        if (err) { return err; }
+        return `Successfully created ${success.length} Loan records`;
+      });
+    });
+};
+
+seedHouses();
+seedTaxes();
+seedLoans();
