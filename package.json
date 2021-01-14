@@ -8,13 +8,18 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build-db": "mysql -u root -p database/schema.sql",
-    "lint": "eslint . --ext .js"
+    "build-db": "mysql -u root -p database/schema.sql"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "./src/*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "eslint src/*.js --fix-dry-run"
+    ]
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -22,6 +27,7 @@
     "express": "^4.17.1",
     "husky": "^4.3.7",
     "knex": "^0.21.15",
+    "lint-staged": "^10.5.3",
     "mysql": "^2.18.1"
   },
   "devDependencies": {
