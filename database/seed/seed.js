@@ -1,43 +1,43 @@
-const fs = require('fs');
-const csv = require('csv-parser');
-const p = require('path');
+const path = require('path');
+const csv = require('csvtojson');
+const db = require('../db.js');
 
-const path = p.join(__dirname, 'houses.csv');
+const seedHouses = () => {
+  db.House.deleteMany({}, () => {});
+  const housesCsv = path.join(__dirname, 'houses.csv');
+  csv().fromFile(housesCsv)
+    .then((housesJson) => {
+      db.House.insertMany(housesJson, (err, success) => {
+        if (err) { return err; }
+        return `Successfully created ${success.length} House records`;
+      });
+    });
+};
 
+const seedTaxes = () => {
+  db.Tax.deleteMany({}, () => {});
+  const taxesCsv = path.join(__dirname, 'taxes.csv');
+  csv().fromFile(taxesCsv)
+    .then((taxesJson) => {
+      db.Tax.insertMany(taxesJson, (err, success) => {
+        if (err) { return err; }
+        return `Successfully created ${success.length} Tax records`;
+      });
+    });
+};
 
-const db = require('../db.js')
-const knex = require('knex')
-// const knex = require('knex')({
-//   client: 'sqlite3',
-//   connection: {
-//     filename: './data.db',
-//   },
-// });
+const seedLoans = () => {
+  db.Loan.deleteMany({}, () => {});
+  const loansCsv = path.join(__dirname, 'loans.csv');
+  csv().fromFile(loansCsv)
+    .then((loansJson) => {
+      db.Loan.insertMany(loansJson, (err, success) => {
+        if (err) { return err; }
+        return `Successfully created ${success.length} Loan records`;
+      });
+    });
+};
 
-
-
-
-// fs.readFile(path, (err, csv) =>{
-//   if (err) throw err;
-//   console.log(JSON.stringify(csv));
-// });
-
-/////////////////////    /////////////////////
-/////////////////////    /////////////////////
-/////////////////////    /////////////////////
-/////////////////////    /////////////////////
-
-// fs.readdir(__dirname, (err, files) => {
-//   if (err) { console.log(err) }
-//   files.forEach(file => {
-//     if (file.slice(-4) === '.csv') {
-//       const path = p.join(__dirname, file)
-//       fs.createReadStream(path)
-//       .on('error', () => {console.log('error')})
-//       .pipe(csv())
-//       .on('data', (row) => {console.log(row);})
-//     }
-//   })
-// })
-
-
+seedHouses();
+seedTaxes();
+seedLoans();
