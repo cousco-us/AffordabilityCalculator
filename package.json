@@ -8,7 +8,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build-db": "mysql -u root -p database/schema.sql"
+    "build-db": "mysql -u root -p database/schema.sql",
+    "lint": "eslint . --ext .js"
   },
   "husky": {
     "hooks": {
