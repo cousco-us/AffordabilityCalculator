@@ -1,15 +1,15 @@
 {
   "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "version": "0.1",
+  "description": "Front End Capstone",
+  "author": "N Smith",
+  "license": "MIT",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build-db": "mysql -u root -p database/schema.sql",
-    "db:seed": "node database/seed/seed.js"
+    "start": "node server",
+    "seed": "node database/seed/seed.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -19,12 +19,6 @@
     "mongoose": "^5.11.11"
   },
   "devDependencies": {
-    "eslint": "^7.17.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
   }
 }
