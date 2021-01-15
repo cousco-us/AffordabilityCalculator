@@ -12,7 +12,7 @@ const getByType = (type, cb) => {
 }
 
 module.exports = {
-  getAll: getAll,
-  getById: getById,
-  getByType: getByType
+  getAll,
+  getById,
+  getByType
 };

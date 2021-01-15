@@ -11,14 +11,14 @@ app.get('/', (req, res) => {
 });
 
 // API
-app.get('/houses', Houses.getAll);
+app.get('/houses', Houses.getAll); // convenience dev
 app.get('/houses/:id', Houses.getById);
 
-app.get('/loans', Loans.getAll);
+app.get('/loans', Loans.getAll);  // convenience dev
 app.get('/loans/:id', Loans.getById);
 app.get('/loans/name/:type', Loans.getByType);
 
-app.get('/taxes/', Taxes.getAll);
+app.get('/taxes/', Taxes.getAll);  // convenience dev
 app.get('/taxes/:id', Taxes.getById);
 app.get('/taxes/state/:state', Taxes.getByState);
 

@@ -31,7 +31,7 @@ const getByType = (req, res) => {
 };
 
 module.exports = {
-  getAll: getAll,
-  getById: getById,
-  getByType: getByType
+  getAll,
+  getById,
+  getByType
 };

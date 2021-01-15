@@ -8,6 +8,6 @@ const getById = (id, cb) => {
 };
 
 module.exports = {
-  getAll: getAll,
-  getById: getById
+  getAll,
+  getById
 };
