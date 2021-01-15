@@ -24,7 +24,7 @@ const loansSchema = new mongoose.Schema({
 const Loan = mongoose.model('Loan', loansSchema);
 
 module.exports = {
-  db,
+  connection: db,
   House,
   Tax,
   Loan
