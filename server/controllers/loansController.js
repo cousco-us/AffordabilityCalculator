@@ -20,7 +20,18 @@ const getById = (req, res) => {
   })
 };
 
+const getByType = (req, res) => {
+  Loans.getByType(req.params.type, (err, loan) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send(loan);
+    }
+  })
+};
+
 module.exports = {
   getAll: getAll,
-  getById: getById
+  getById: getById,
+  getByType: getByType
 };

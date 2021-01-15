@@ -16,7 +16,7 @@ app.get('/houses/:id', Houses.getById);
 
 app.get('/loans', Loans.getAll);
 app.get('/loans/:id', Loans.getById);
-// app.get('/loans/:name', Loans.getByName);
+app.get('/loans/name/:type', Loans.getByType);
 
 app.get('/taxes/', Taxes.getAll);
 app.get('/taxes/:id', Taxes.getById);

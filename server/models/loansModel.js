@@ -7,7 +7,12 @@ const getById = (id, cb) => {
   db.Loan.findById(id, cb);
 };
 
+const getByType = (type, cb) => {
+  db.Loan.find({type: type}, cb);
+}
+
 module.exports = {
   getAll: getAll,
-  getById: getById
+  getById: getById,
+  getByType: getByType
 };
