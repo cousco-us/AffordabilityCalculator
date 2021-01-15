@@ -16,9 +16,11 @@ app.get('/houses/:id', Houses.getById);
 
 app.get('/loans', Loans.getAll);
 app.get('/loans/:id', Loans.getById);
+// app.get('/loans/:name', Loans.getByName);
 
 app.get('/taxes/', Taxes.getAll);
 app.get('/taxes/:id', Taxes.getById);
+app.get('/taxes/state/:state', Taxes.getByState);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
