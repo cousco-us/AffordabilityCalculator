@@ -5,7 +5,6 @@ const getAll = (cb) => {
 }
 const getById = (id, cb) => {
   db.House.findById(id, cb);
-  // cb(null, id);
 };
 
 module.exports = {

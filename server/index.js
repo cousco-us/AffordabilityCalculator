@@ -1,5 +1,6 @@
 const express = require('express');
 const Houses = require('./controllers/housesController.js');
+const Loans = require('./controllers/loansController.js');
 const app = express();
 const port = 3000;
 
@@ -11,7 +12,9 @@ app.get('/', (req, res) => {
 // API
 app.get('/houses', Houses.getAll);
 app.get('/houses/:id', Houses.getById);
-// app.get('/loans/:id');
+
+app.get('/loans', Loans.getAll);
+app.get('/loans/:id', Loans.getById);
 // app.get('/taxes/:id');
 
 app.listen(port, () => {
