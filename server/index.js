@@ -1,6 +1,7 @@
 const express = require('express');
 const Houses = require('./controllers/housesController.js');
 const Loans = require('./controllers/loansController.js');
+const Taxes = require('./controllers/taxesController.js');
 const app = express();
 const port = 3000;
 
@@ -15,7 +16,9 @@ app.get('/houses/:id', Houses.getById);
 
 app.get('/loans', Loans.getAll);
 app.get('/loans/:id', Loans.getById);
-// app.get('/taxes/:id');
+
+app.get('/taxes/', Taxes.getAll);
+app.get('/taxes/:id', Taxes.getById);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
