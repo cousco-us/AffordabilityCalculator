@@ -1,6 +1,6 @@
 {
   "name": "",
-  "version": "0.1",
+  "version": "",
   "description": "Front End Capstone",
   "author": "N Smith",
   "license": "MIT",
@@ -9,17 +9,25 @@
   },
   "scripts": {
     "start": "nodemon server",
-    "seed": "node database/seed/seed.js"
+    "seed": "node database/seed/seed.js",
+    "lint": "eslint ."
   },
   "dependencies": {
     "axios": "^0.21.1",
     "csv-parser": "^3.0.0",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
-    "mongoose": "^5.11.11"
+    "mongoose": "^5.11.11",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "nodemon": "^2.0.7"
   }
 }
