@@ -1,9 +1,6 @@
 {
-  "name": "",
-  "version": "",
   "description": "Front End Capstone",
   "author": "N Smith",
-  "license": "MIT",
   "engines": {
     "node": ">=6.13.0"
   },
