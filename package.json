@@ -17,7 +17,9 @@
     "csv-parser": "^3.0.0",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
-    "mongoose": "^5.11.11"
+    "mongoose": "^5.11.11",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "eslint": "^7.18.0",
