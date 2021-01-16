@@ -7,7 +7,7 @@ const getAll = (req, res) => {
     } else {
       res.status(200).send(taxes);
     }
-  })
+  });
 };
 
 const getById = (req, res) => {
@@ -17,7 +17,7 @@ const getById = (req, res) => {
     } else {
       res.status(200).send(tax);
     }
-  })
+  });
 };
 
 const getByState = (req, res) => {
@@ -28,11 +28,11 @@ const getByState = (req, res) => {
     } else {
       res.status(200).send(tax);
     }
-  })
+  });
 };
 
 module.exports = {
-  getAll: getAll,
-  getById: getById,
-  getByState: getByState
+  getAll,
+  getById,
+  getByState,
 };

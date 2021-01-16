@@ -7,7 +7,7 @@ const getAll = (req, res) => {
     } else {
       res.status(200).send(loans);
     }
-  })
+  });
 };
 
 const getById = (req, res) => {
@@ -17,7 +17,7 @@ const getById = (req, res) => {
     } else {
       res.status(200).send(loan);
     }
-  })
+  });
 };
 
 const getByType = (req, res) => {
@@ -27,11 +27,11 @@ const getByType = (req, res) => {
     } else {
       res.status(200).send(loan);
     }
-  })
+  });
 };
 
 module.exports = {
   getAll,
   getById,
-  getByType
+  getByType,
 };

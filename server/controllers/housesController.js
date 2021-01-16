@@ -7,7 +7,7 @@ const getAll = (req, res) => {
     } else {
       res.status(200).send(houses);
     }
-  })
+  });
 };
 
 const getById = (req, res) => {
@@ -17,10 +17,10 @@ const getById = (req, res) => {
     } else {
       res.status(200).send(house);
     }
-  })
+  });
 };
 
 module.exports = {
-  getAll: getAll,
-  getById: getById
+  getAll,
+  getById,
 };
