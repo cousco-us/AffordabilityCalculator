@@ -8,11 +8,11 @@ const getById = (id, cb) => {
 };
 
 const getByType = (type, cb) => {
-  db.Loan.find({type: type}, cb);
-}
+  db.Loan.find({ type }, cb);
+};
 
 module.exports = {
   getAll,
   getById,
-  getByType
+  getByType,
 };

@@ -9,11 +9,11 @@ const getById = (id, cb) => {
 };
 
 const getByState = (state, cb) => {
-  db.Tax.find({'state': state}, cb);
+  db.Tax.find({ state }, cb);
 };
 
 module.exports = {
-  getAll: getAll,
-  getById: getById,
-  getByState: getByState
+  getAll,
+  getById,
+  getByState,
 };

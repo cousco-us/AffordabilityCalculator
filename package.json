@@ -1,6 +1,6 @@
 {
   "name": "",
-  "version": "0.1",
+  "version": "",
   "description": "Front End Capstone",
   "author": "N Smith",
   "license": "MIT",
@@ -21,7 +21,6 @@
   "devDependencies": {
     "eslint": "^7.18.0",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
