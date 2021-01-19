@@ -1,11 +1,7 @@
 import React from 'react';
 
 const InputLeft = () => (
-  <form>
-    <label>
-      <input type="text" />
-    </label>
-  </form>
+  <input type="text" />
 );
 
 export default InputLeft;
