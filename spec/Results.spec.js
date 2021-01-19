@@ -2,10 +2,10 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
 
-import App from '../client/components/App.jsx';
+import Results from '../client/components/results.jsx';
 
-describe('Testing App component', () => {
+describe('Testing Results component', () => {
   it('should render without throwing an error', function() {
-    expect(shallow(<App />).contains(<h1>Hello React!</h1>)).toBe(true);
+    expect(shallow(<Results />).contains(<h1>Results</h1>)).toBe(true);
   });
 });

@@ -2,10 +2,10 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
 
-import App from '../client/components/App.jsx';
+import Head from '../client/components/Head.jsx';
 
-describe('Testing App component', () => {
+describe('Testing Head component', () => {
   it('should render without throwing an error', function() {
-    expect(shallow(<App />).contains(<h1>Hello React!</h1>)).toBe(true);
+    expect(shallow(<Head />).contains(<h1>Affordability</h1>)).toBe(true);
   });
 });

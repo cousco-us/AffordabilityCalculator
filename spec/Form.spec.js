@@ -2,10 +2,10 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
 
-import App from '../client/components/App.jsx';
+import Form from '../client/components/Form.jsx';
 
-describe('Testing App component', () => {
+describe('Testing Form component', () => {
   it('should render without throwing an error', function() {
-    expect(shallow(<App />).contains(<h1>Hello React!</h1>)).toBe(true);
+    expect(shallow(<Form />).contains(<h1>Form</h1>)).toBe(true);
   });
 });

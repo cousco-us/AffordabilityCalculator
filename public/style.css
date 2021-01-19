@@ -1,0 +1,52 @@
+#calculator {
+  max-width: 960px;
+  margin: auto;
+}
+
+#head {
+  padding: 16px;
+}
+
+#form {
+  background-color: rgb(245, 246, 247);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+#results {
+  padding: 16px;
+}
+
+.form-table {
+  width: 100%;
+}
+.form-table td {
+  width: 33%;
+}
+
+/* FONT STYLES */
+
+h1, h2, p {
+  font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+  color: rgb(59, 65, 68);
+  outline: none;
+  box-sizing: border-box;
+  letter-spacing: -0.1px;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 12px;
+  line-height: 1.5;
+}
