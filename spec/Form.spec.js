@@ -4,8 +4,6 @@ import { shallow, mount } from 'enzyme';
 
 import Form from '../client/components/Form.jsx';
 
-describe('Testing Form component', () => {
-  it('should render without throwing an error', function() {
-    expect(shallow(<Form />).contains(<h1>Form</h1>)).toBe(true);
-  });
+describe('Form component', () => {
+  it('exists', () => { expect(shallow(<Form />).exists()).toBe(true) });
 });

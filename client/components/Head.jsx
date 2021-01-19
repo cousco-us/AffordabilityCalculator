@@ -1,9 +1,7 @@
 import React from 'react';
-import FontStyles from '../global_styles/FontStyles.jsx';
 
 const Head = () => (
   <div id="head">
-    <FontStyles />
     <h1>Affordability</h1>
     <h2>Calculate your monthly mortgage payments</h2>
     <p>Your est. payment: $13,035/month*</p>
