@@ -1,12 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 
 const TableStyles = createGlobalStyle`
-  .form-table {
-    width: 100%;
+  .container {
+    display: flex;
+    flex-wrap: wrap;
   }
 
-  .form-table td {
-    width: 33%;
+  .item {
+    flex-grow: 1;
+  }
+
+  .full-width {
+    flex: 100%;
   }
 
 `;

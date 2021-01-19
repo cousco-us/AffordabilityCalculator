@@ -5,28 +5,22 @@ const Form = () => (
   <>
     <TableStyles />
     <div id="form">
-      <table className="form-table">
-        <tbody>
-          <tr>
-            <td>
-              <h2>Home Price</h2>
-            </td>
-            <td>
-              <h2>Down Payment</h2>
-            </td>
-            <td>
-              <h2>Interest Rate</h2>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h2>Loan Type</h2>
-            </td>
-            <td />
-            <td />
-          </tr>
-        </tbody>
-      </table>
+
+      <div className="container">
+        <div className="item">
+          <h2>Home Price</h2>
+        </div>
+        <div className="item">
+          <h2>Down Payment</h2>
+        </div>
+        <div className="item">
+          <h2>Interest Rate</h2>
+        </div>
+        <div className="full-width">
+          <h2>Loan Types</h2>
+        </div>
+      </div>
+
     </div>
   </>
 );
