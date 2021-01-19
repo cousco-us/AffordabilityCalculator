@@ -9,7 +9,6 @@ const Form = () => (
   <>
     <TableStyles />
     <div id="form">
-
       <div className="container">
         <div className="item">
           <h2>Home Price</h2>
@@ -29,7 +28,6 @@ const Form = () => (
           <Dropdown />
         </div>
       </div>
-
     </div>
   </>
 );
