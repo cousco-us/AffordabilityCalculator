@@ -1,5 +1,5 @@
 import React from 'react';
-import FontStyles from './GlobalStyles.jsx';
+import FontStyles from '../global_styles/FontStyles.jsx';
 
 const Head = () => (
   <div id="head">
