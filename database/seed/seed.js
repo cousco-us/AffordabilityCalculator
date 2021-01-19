@@ -35,7 +35,38 @@ if (useCsv) {
   };
 }
 
-const seedTaxes = () => {
+// const seedTaxes = () => {
+//   db.Tax.deleteMany({}, () => {});
+//   const taxesCsv = path.join(__dirname, 'taxes.csv');
+//   csv().fromFile(taxesCsv)
+//     .then((taxesJson) => {
+//       db.Tax.insertMany(taxesJson, (err, success) => {
+//         if (err) { return err; }
+//         return `Successfully created ${success.length} Tax records`;
+//       });
+//     });
+// };
+
+// const seedLoans = () => {
+//   db.Loan.deleteMany({}, () => {});
+//   const loansCsv = path.join(__dirname, 'loans.csv');
+//   csv().fromFile(loansCsv)
+//     .then((loansJson) => {
+//       db.Loan.insertMany(loansJson, (err, success) => {
+//         if (err) { return err; }
+//         return `Successfully created ${success.length} Loan records`;
+//       });
+//     });
+// };
+
+// seedHouses();
+// seedTaxes();
+// seedLoans();
+
+
+
+
+const seedTaxes = new Promise(() => {
   db.Tax.deleteMany({}, () => {});
   const taxesCsv = path.join(__dirname, 'taxes.csv');
   csv().fromFile(taxesCsv)
@@ -45,9 +76,9 @@ const seedTaxes = () => {
         return `Successfully created ${success.length} Tax records`;
       });
     });
-};
+});
 
-const seedLoans = () => {
+const seedLoans = new Promise(() => {
   db.Loan.deleteMany({}, () => {});
   const loansCsv = path.join(__dirname, 'loans.csv');
   csv().fromFile(loansCsv)
@@ -57,15 +88,18 @@ const seedLoans = () => {
         return `Successfully created ${success.length} Loan records`;
       });
     });
-};
+});
 
-seedHouses();
-seedTaxes();
-seedLoans();
+// seedTaxes
+//   .then(seedLoans)
+  // .then(() => db.connection.close());
+  // .then(db.connection.close);
+const close = new Promise(db.connection.close());
+Promise.all([seedTaxes, seedLoans]).then(close);
 
 /// PLEASE FIX THIS vvv
-setTimeout(
-  () => db.connection.close(),
-  9999,
-);
+// setTimeout(
+//   () => db.connection.close(),
+//   9999,
+// );
 /// PLEASE FIX THIS ^^^
