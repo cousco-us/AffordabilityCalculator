@@ -64,8 +64,8 @@ seedTaxes();
 seedLoans();
 
 /// PLEASE FIX THIS vvv
-// setTimeout(
-//   () => db.connection.close(),
-//   9999,
-// );
+setTimeout(
+  () => db.connection.close(),
+  9999,
+);
 /// PLEASE FIX THIS ^^^
