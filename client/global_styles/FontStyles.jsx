@@ -30,7 +30,7 @@ const FontStyles = createGlobalStyle`
     box-sizing: border-box;
     letter-spacing: -0.1px;
     font-size: 12px;
-    line-height: 1.5;
+    line-height: 0;
   }
 `;
 
