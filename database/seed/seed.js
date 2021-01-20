@@ -21,7 +21,7 @@ if (useCsv) {
   seedHouses = () => {
     db.House.deleteMany({}, () => {});
     const houses = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 100; i += 1) {
       houses.push({
         price: Math.round(faker.finance.amount(95250, 10500000)),
         zipcode: faker.address.zipCode().slice(0, 5),
