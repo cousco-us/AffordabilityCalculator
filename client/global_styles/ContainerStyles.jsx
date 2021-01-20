@@ -40,6 +40,22 @@ const ContainerStyles = createGlobalStyle`
   .results-list-container {
     flex: 2;
   }
+
+  .results-table {
+
+  }
+  .results-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .results-text-col {
+    flex: 4;
+  }
+  .results-money-col {
+    flex: 1;
+    font-weight: bold;
+    text-align: right;
+  }
 `;
 
 export default ContainerStyles;

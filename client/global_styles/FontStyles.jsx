@@ -1,11 +1,16 @@
 import { createGlobalStyle } from 'styled-components';
 
 const FontStyles = createGlobalStyle`
-  h1 {
-    font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
-    color: rgb(59, 65, 68);
-    outline: none;
-    box-sizing: border-box;
+* {
+  font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+  color: rgb(59, 65, 68);
+  outline: none;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+h1 {
     letter-spacing: -0.1px;
     font-weight: bold;
     font-size: 20px;
@@ -13,10 +18,6 @@ const FontStyles = createGlobalStyle`
   }
 
   h2 {
-    font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
-    color: rgb(59, 65, 68);
-    outline: none;
-    box-sizing: border-box;
     letter-spacing: -0.1px;
     font-weight: bold;
     font-size: 16px;
@@ -24,14 +25,12 @@ const FontStyles = createGlobalStyle`
   }
 
   p {
-    font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
-    color: rgb(59, 65, 68);
-    outline: none;
-    box-sizing: border-box;
     letter-spacing: -0.1px;
     font-size: 12px;
     line-height: 0;
   }
+
+
 `;
 
 export default FontStyles;
