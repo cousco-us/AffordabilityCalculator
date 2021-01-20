@@ -19,6 +19,14 @@ const ContainerStyles = createGlobalStyle`
   #results {
     padding: 16px;
   }
+
+  .form-stack {
+    display: flex;
+  }
+
+  .form-stack-cell {
+    flex-direction: column;
+  }
 `;
 
 export default ContainerStyles;
