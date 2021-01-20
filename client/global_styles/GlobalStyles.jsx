@@ -34,6 +34,12 @@ const GlobalStyles = createGlobalStyle`
     padding: 16px 16px;
   }
 
+  .affordability-container {
+    margin: 32px 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
   // GLOBAL FONT STYLES //
 
   h3 {
@@ -42,7 +48,7 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.2;
   }
 
-  h4 {
+  h4, .input-label {
     font-weight: 600;
     font-size: 1em;
     line-height: 1.5;
@@ -51,32 +57,6 @@ const GlobalStyles = createGlobalStyle`
   p {
     font-size: 1em;
     line-height: 1.5;
-  }
-
-  // AFFORDABILITY MODULE //
-
-  .affordability-container {
-    margin: 32px 0px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  // HEADING COMPONENT //
-
-  .heading-container {
-    padding: 0px 0px 8px;
-  }
-
-  .text-container {
-    padding: 0px 0px 16px;
-  }
-
-  .text-container-base {
-    color: rgb(59, 65, 68);
-  }
-
-  .heading-container p {
-    margin-top: -16px;
   }
 `;
 

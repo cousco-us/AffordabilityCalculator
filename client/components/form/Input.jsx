@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import FormStyles from '../../global_styles/FormStyles.jsx';
+// import FormStyles from '../../global_styles/FormStyles.jsx';
 
 const Input = ({ id }) => (
   <>
