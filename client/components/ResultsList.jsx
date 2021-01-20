@@ -1,8 +1,26 @@
 import React, { Fragment } from 'react';
 import DotStyles from '../global_styles/DotStyles.jsx';
+import ResultStyles from '../global_styles/ResultStyles.jsx';
 
 const ResultsList = () => (
   <>
+    <ResultStyles />
+    <DotStyles />
+    {/* <div className="results-table-container">
+      <div className="results-table">
+        <div className="results-row-outer">
+          <div className="results-row-inner">
+            <div className="heading-col">
+              <div className="table-title-dot" />
+              Principal & Interest
+            </div>
+            <div className="value-col">
+              $3,187
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> */}
     <DotStyles />
     <div className="results-table">
       <div className="results-row">
