@@ -27,24 +27,25 @@ const Form = () => (
           <div className="grid-cell-box">
             <div className="affordability-input-controls-container">
               <div className="affordability-input-controls">
-              <label className="input-label">Down Payment</label>
-                <Input id="input-control-home-price-input" />
+                <label className="input-label">Down Payment</label>
+                <Input id="input-control-down-payment-dollar-input" />
+                <Input id="input-control-down-payment-percent-input" />
               </div>
             </div>
           </div>
           <div className="grid-cell-box">
             <div className="affordability-input-controls-container">
               <div className="affordability-input-controls">
-              <label className="input-label">Interest Rate</label>
-                <Input id="input-control-home-price-input" />
+                <label className="input-label">Interest Rate</label>
+                <Input id="input-control-interest-rate-input" />
               </div>
             </div>
           </div>
           <div className="grid-cell-box">
             <div className="affordability-input-controls-container">
               <div className="affordability-input-controls">
-              <label className="input-label">Loan Type</label>
-                <Input id="input-control-home-price-input" />
+                <label className="input-label">Loan Type</label>
+                <Dropdown id="" />
               </div>
             </div>
           </div>

@@ -56,16 +56,89 @@ const FormStyles = createGlobalStyle`
     min-height: 48px;
   }
 
+  input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: textfield;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+  }
+
   #input-control-home-price-input {
+    width: 112px;
     border-radius: 8px;
     border: 1px solid rgb(205, 209, 212);
     padding: 8px;
     font-size: 16px;
     line-height: 1.5;
-    width: 100%;
+    // width: 100%;
     display: inline-block;
     outline: none;
     transition: box-shadow 0.15s ease 0s, border-color 0.15s ease 0s;
+  }
+
+  #input-control-interest-rate-input {
+    width: 75px;
+    border-radius: 8px;
+    border: 1px solid rgb(205, 209, 212);
+    padding: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+    // width: 100%;
+    display: inline-block;
+    outline: none;
+    transition: box-shadow 0.15s ease 0s, border-color 0.15s ease 0s;
+  }
+
+  #input-control-down-payment-dollar-input {
+    width: 100px;
+    border-width: 1px 0px 1px 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: rgb(205, 209, 212);
+    border-bottom-color: rgb(205, 209, 212);
+    border-left-color: rgb(205, 209, 212);
+    border-image: initial;
+    padding: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+    // width: 100%;
+    display: inline-block;
+    outline: none;
+    transition: box-shadow 0.15s ease 0s, border-color 0.15s ease 0s;
+    border-radius: 8px 0px 0px 8px;
+    border-right-style: initial;
+    border-right-color: initial;
+  }
+
+  #input-control-down-payment-percent-input {
+    width: 56px;
+    border: 1px solid rgb(205, 209, 212);
+    padding: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+    // width: 100%;
+    display: inline-block;
+    outline: none;
+    transition: box-shadow 0.15s ease 0s, border-color 0.15s ease 0s;
+    border-radius: 0px 8px 8px 0px;
   }
 `;
 
