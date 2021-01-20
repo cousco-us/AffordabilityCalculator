@@ -14,14 +14,16 @@ const Form = () => (
       <div className="container">
         <div className="item">
           <h2>Home Price</h2>
-          <div className="form-stack">
+          <Input id="HomePriceInput" />
+          <Range id="affordability-input-control-slider" />
+          {/* <div className="form-stack">
             <div className="form-stack-cell">
               <Input id="HomePriceInput" />
             </div>
             <div className="form-stack-cell">
               <Range id="affordability-input-control-slider" />
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="item">
           <h2>Down Payment</h2>

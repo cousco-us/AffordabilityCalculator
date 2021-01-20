@@ -21,11 +21,24 @@ const ContainerStyles = createGlobalStyle`
   }
 
   .form-stack {
-    display: flex;
+    // display: flex;
+    // flex-direction: column;
   }
 
   .form-stack-cell {
-    flex-direction: column;
+
+  }
+
+
+
+  .container {
+    display: flex;
+  }
+  .donut-container {
+    flex: 1;
+  }
+  .results-list-container {
+    flex: 2;
   }
 `;
 
