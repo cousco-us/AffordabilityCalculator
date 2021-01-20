@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Range = () => (
-  <input type="range" />
+const Range = ({ id }) => (
+  <input id={id} type="range" />
 );
 
 export default Range;

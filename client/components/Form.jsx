@@ -14,23 +14,23 @@ const Form = () => (
       <div className="container">
         <div className="item">
           <h2>Home Price</h2>
-          <Input />
-          <Range />
+          <Input id="HomePriceInput" />
+          <Range id="affordability-input-control-slider" />
         </div>
         <div className="item">
           <h2>Down Payment</h2>
-          <InputLeft />
-          <InputRight />
-          <Range />
+          <InputLeft id="DownPaymentInput" />
+          <InputRight id="RightSplitFinancialInput" />
+          <Range id="affordability-input-control-slider" />
         </div>
         <div className="item">
           <h2>Interest Rate</h2>
-          <Input />
-          <Range />
+          <Input id="InterestRateInput" />
+          <Range id="affordability-input-control-slider" />
         </div>
         <div className="full-width">
           <h2>Loan Types</h2>
-          <Dropdown />
+          <Dropdown id="LoanTypeInput" />
         </div>
       </div>
     </div>

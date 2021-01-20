@@ -1,7 +1,7 @@
 import React from 'react';
 
-const InputLeft = () => (
-  <input type="text" />
+const InputLeft = ({ id }) => (
+  <input id={id} type="text" />
 );
 
 export default InputLeft;
