@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const FontStyles = createGlobalStyle`
 * {
-  font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+  font-family: TruliaSans, Roboto, "Segoe UI Bold", Arial, sans-serif;
   color: rgb(59, 65, 68);
   outline: none;
   box-sizing: border-box;

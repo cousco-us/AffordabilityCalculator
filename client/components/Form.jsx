@@ -9,7 +9,7 @@ import Range from './form/Range.jsx';
 
 const Form = () => (
   <>
-    <ContainerStyles />
+    {/* <ContainerStyles /> */}
     <div id="form">
       <div className="container">
         <div className="item">

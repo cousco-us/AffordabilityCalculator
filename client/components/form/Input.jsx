@@ -3,7 +3,7 @@ import FormStyles from '../../global_styles/FormStyles.jsx';
 
 const Input = ({ id }) => (
   <>
-    <FormStyles />
+    {/* <FormStyles /> */}
     <input id={id} type="text" />
   </>
 );
