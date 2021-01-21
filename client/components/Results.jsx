@@ -13,6 +13,7 @@ const Results = ({
   propertyTaxes,
   homeInsurance,
   mortgageInsuranceAndOther,
+  donutData,
 }) => (
   <div id="results">
     <ResultStyles />
@@ -22,7 +23,7 @@ const Results = ({
         <div className="donut-inner">
           <div className="donut">
             <Donut
-              totalPayment={totalPayment}
+              donutData={donutData}
             />
           </div>
         </div>

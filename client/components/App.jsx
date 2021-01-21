@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 
 import dbOps from '../../lib/databaseOperations.js';
 import mortgageOps from '../../lib/mortgageCalculator.js';
+import donutOps from '../../lib/donutHelper.js';
 
 import GlobalStyles from '../global_styles/GlobalStyles.jsx';
 
@@ -26,6 +27,7 @@ class App extends React.Component {
       homeInsurance: 75,
       mortgageInsuranceAndOther: 0,
       loans: [],
+      donutData: [],
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -86,7 +88,8 @@ class App extends React.Component {
 
   async initialize() {
     await this.initializeFromDb();
-    this.estimatePayment();
+    await this.estimatePayment();
+    this.buildDonutData();
   }
 
   async initializeFromDb() {
@@ -152,6 +155,61 @@ class App extends React.Component {
     this.setState({ estimatedPayment: estimate });
   }
 
+  buildDonutData() {
+    const {
+      estimatedPayment,
+      principleAndInterest,
+      propertyTaxes,
+      homeInsurance,
+      mortgageInsuranceAndOther,
+    } = this.state;
+
+    const donutData = [
+      {
+        title: 'principal & interest',
+        cx: '18',
+        cy: '18',
+        r: '15.915494309189533',
+        fill: 'transparent',
+        strokeWidth: '3.8',
+        stroke: 'rgb(5, 34, 134)',
+        strokeDasharray: donutOps.percentageSplit(principleAndInterest, estimatedPayment).join(' '),
+      },
+      {
+        title: 'property taxes',
+        cx: '18',
+        cy: '18',
+        r: '15.915494309189533',
+        fill: 'transparent',
+        strokeWidth: '3.8',
+        stroke: 'rgb(0, 173, 187)',
+        strokeDasharray: donutOps.percentageSplit(propertyTaxes, estimatedPayment).join(' '),
+      },
+      {
+        title: 'home insurance',
+        cx: '18',
+        cy: '18',
+        r: '15.915494309189533',
+        fill: 'transparent',
+        strokeWidth: '3.8',
+        stroke: 'rgb(194, 213, 0)',
+        strokeDasharray: donutOps.percentageSplit(homeInsurance, estimatedPayment).join(' '),
+      },
+      {
+        title: 'mortgage insurance & other',
+        cx: '18',
+        cy: '18',
+        r: '15.915494309189533',
+        fill: 'transparent',
+        strokeWidth: '3.8',
+        stroke: 'rgb(206, 182, 255)',
+        strokeDasharray: donutOps.percentageSplit(mortgageInsuranceAndOther, estimatedPayment).join(' '),
+      },
+    ];
+
+    this.setState({ donutData });
+  }
+
   render() {
     const {
       home,
@@ -165,6 +223,7 @@ class App extends React.Component {
       propertyTaxes,
       homeInsurance,
       mortgageInsuranceAndOther,
+      donutData,
     } = this.state;
     return (
       <>
@@ -190,6 +249,7 @@ class App extends React.Component {
                 propertyTaxes={propertyTaxes}
                 homeInsurance={homeInsurance}
                 mortgageInsuranceAndOther={mortgageInsuranceAndOther}
+                donutData={donutData}
               />
             </div>
           </div>

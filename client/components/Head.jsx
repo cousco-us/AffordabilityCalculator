@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import currency from 'currency-formatter';
 
 import HeadStyles from '../global_styles/HeadStyles.jsx';
 
