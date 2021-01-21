@@ -185,7 +185,7 @@ class App extends React.Component {
         strokeWidth: '3.8',
         stroke: 'rgb(0, 173, 187)',
         strokeDasharray: donutOps.percentageSplit(propertyTaxes, estimatedPayment).join(' '),
-        strokeDashoffset: '25',
+        strokeDashoffset: donutOps.relativeOffset(propertyTaxes, estimatedPayment),
       },
       {
         title: 'home insurance',
