@@ -8,7 +8,7 @@ import Dropdown from './form/Dropdown.jsx';
 // import Range from './form/Range.jsx';
 
 const Form = ({
-  homePrice, downPayment, downPaymentPercent, interestRate, loanTypes, handleInputChange,
+  homePrice, downPayment, downPaymentPercent, interestRate, loans, handleInputChange,
 }) => (
   <>
     <FormStyles />
@@ -20,7 +20,7 @@ const Form = ({
               <div className="affordability-input-controls">
                 <label className="input-label">Home Price</label>
                 <Input
-                  value={homePrice}
+                  value={Number(homePrice)}
                   name="homePrice"
                   valueType="$"
                   id="input-control-home-price-input"
@@ -37,14 +37,14 @@ const Form = ({
                 <label className="input-label">Down Payment</label>
                 <Input
                   id="input-control-down-payment-dollar-input"
-                  value={downPayment}
+                  value={Number(downPayment)}
                   name="downPayment"
                   valueType="$"
                   handleInputChange={handleInputChange}
                 />
                 <Input
                   id="input-control-down-payment-percent-input"
-                  value={downPaymentPercent}
+                  value={Number(downPaymentPercent)}
                   name="downPaymentPercent"
                   valueType="%"
                   handleInputChange={handleInputChange}
@@ -58,7 +58,7 @@ const Form = ({
                 <label className="input-label">Interest Rate</label>
                 <Input
                   id="input-control-interest-rate-input"
-                  value={interestRate}
+                  value={Number(interestRate)}
                   name="interestRate"
                   valueType="%"
                   handleInputChange={handleInputChange}
@@ -73,7 +73,7 @@ const Form = ({
                 <Dropdown
                   id=""
                   name="selectedLoanType"
-                  loanTypes={loanTypes}
+                  loans={loans}
                   handleInputChange={handleInputChange}
                 />
               </div>
@@ -92,6 +92,6 @@ Form.propTypes = {
   downPayment: PropTypes.number.isRequired,
   downPaymentPercent: PropTypes.number.isRequired,
   interestRate: PropTypes.number.isRequired,
-  loanTypes: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  loans: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   handleInputChange: PropTypes.func.isRequired,
 };

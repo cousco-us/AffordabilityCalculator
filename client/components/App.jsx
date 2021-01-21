@@ -23,7 +23,7 @@ class App extends React.Component {
       propertyTaxes: 0,
       homeInsurance: 75,
       mortgageInsuranceAndOther: 0,
-      loanTypes: [],
+      loans: [],
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -58,14 +58,14 @@ class App extends React.Component {
 
     dbOps.getLoanTypes()
       .then((loans) => {
-        this.setState({ loanTypes: loans });
+        this.setState({ loans });
         this.setState({ interestRate: loans[0].interest_rate * 100 });
       });
   }
 
   render() {
     const {
-      home, homePrice, downPayment, downPaymentPercent, interestRate, loanTypes,
+      home, homePrice, downPayment, downPaymentPercent, interestRate, loans,
     } = this.state;
     return (
       <>
@@ -76,11 +76,11 @@ class App extends React.Component {
               <Head />
               <Form
                 house={home}
-                homePrice={homePrice}
-                downPayment={downPayment}
-                downPaymentPercent={downPaymentPercent}
-                interestRate={interestRate}
-                loanTypes={loanTypes}
+                homePrice={Number(homePrice)}
+                downPayment={Number(downPayment)}
+                downPaymentPercent={Number(downPaymentPercent)}
+                interestRate={Number(interestRate)}
+                loans={loans}
                 handleInputChange={this.handleInputChange}
               />
               <Results />
