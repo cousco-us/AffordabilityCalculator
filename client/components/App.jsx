@@ -34,20 +34,21 @@ class App extends React.Component {
     this.initialize();
   }
 
-  handleInputChange({ target }) {
+  async handleInputChange({ target }) {
     const { name, value } = target;
     if (!name) {
-      dbOps.getInterestRateByLoanType(value)
+      await dbOps.getInterestRateByLoanType(value)
         .then((loan) => this.setState({
           interestRate: loan.interest_rate * 100,
           numberOfYears: loan.years,
         }));
     } else if (name === 'homePrice') {
-      this.setState({ [name]: Number(value) });
-      this.calculatePrincipleAndInterest();
+      await this.setState({ [name]: Number(value) });
     } else {
-      this.setState({ [name]: value });
+      await this.setState({ [name]: value });
     }
+    await this.calculatePrincipleAndInterest();
+    this.estimatePayment();
   }
 
   async initialize() {
@@ -80,6 +81,10 @@ class App extends React.Component {
     await this.calculatePrincipleAndInterest();
   }
 
+  // onHomePriceUpdate() {
+
+  // }
+
   async calculatePrincipleAndInterest() {
     const {
       homePrice,
@@ -91,7 +96,7 @@ class App extends React.Component {
     const financialDetails = {
       homePrice,
       downPayment,
-      interestRate,
+      interestRate: interestRate / 100,
       numberOfYears,
     };
 
