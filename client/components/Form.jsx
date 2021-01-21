@@ -1,20 +1,15 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+
 import FormStyles from '../global_styles/FormStyles.jsx';
 
 import Input from './form/Input.jsx';
-import InputLeft from './form/InputLeft.jsx';
-import InputRight from './form/InputRight.jsx';
 import Dropdown from './form/Dropdown.jsx';
-import Range from './form/Range.jsx';
+// import Range from './form/Range.jsx';
 
-const tests = {
-  price: 970760,
-  downPayment: 194152,
-  downPaymentPercent: 20,
-  interestRate: 2.79,
-};
-
-const Form = ({home, homePrice, downPayment}) => (
+const Form = ({
+  homePrice, downPayment, downPaymentPercent, interestRate, loanTypes, handleInputChange,
+}) => (
   <>
     <FormStyles />
     <div className="form-container">
@@ -26,8 +21,10 @@ const Form = ({home, homePrice, downPayment}) => (
                 <label className="input-label">Home Price</label>
                 <Input
                   value={homePrice}
+                  name="homePrice"
                   valueType="$"
                   id="input-control-home-price-input"
+                  handleInputChange={handleInputChange}
                 />
               </div>
               <div className="">
@@ -39,14 +36,18 @@ const Form = ({home, homePrice, downPayment}) => (
               <div className="affordability-input-controls">
                 <label className="input-label">Down Payment</label>
                 <Input
-                  value={downPayment}
-                  valueType="$"
                   id="input-control-down-payment-dollar-input"
+                  value={downPayment}
+                  name="downPayment"
+                  valueType="$"
+                  handleInputChange={handleInputChange}
                 />
                 <Input
-                  value={tests.downPaymentPercent}
-                  valueType="%"
                   id="input-control-down-payment-percent-input"
+                  value={downPaymentPercent}
+                  name="downPaymentPercent"
+                  valueType="%"
+                  handleInputChange={handleInputChange}
                 />
               </div>
             </div>
@@ -56,9 +57,11 @@ const Form = ({home, homePrice, downPayment}) => (
               <div className="affordability-input-controls">
                 <label className="input-label">Interest Rate</label>
                 <Input
-                  value={tests.interestRate}
-                  valueType="%"
                   id="input-control-interest-rate-input"
+                  value={interestRate}
+                  name="interestRate"
+                  valueType="%"
+                  handleInputChange={handleInputChange}
                 />
               </div>
             </div>
@@ -67,7 +70,12 @@ const Form = ({home, homePrice, downPayment}) => (
             <div className="affordability-input-controls-container">
               <div className="affordability-input-controls">
                 <label className="input-label">Loan Type</label>
-                <Dropdown id="" />
+                <Dropdown
+                  id=""
+                  name="selectedLoanType"
+                  loanTypes={loanTypes}
+                  handleInputChange={handleInputChange}
+                />
               </div>
             </div>
           </div>
@@ -78,3 +86,12 @@ const Form = ({home, homePrice, downPayment}) => (
 );
 
 export default Form;
+
+Form.propTypes = {
+  homePrice: PropTypes.number.isRequired,
+  downPayment: PropTypes.number.isRequired,
+  downPaymentPercent: PropTypes.number.isRequired,
+  interestRate: PropTypes.number.isRequired,
+  loanTypes: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+};

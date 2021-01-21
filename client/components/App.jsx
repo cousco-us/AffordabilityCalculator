@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import currency from 'currency-formatter';
 
 import dbOps from '../../lib/databaseOperations.js';
 import mortgageOps from '../../lib/mortgageCalculator.js';
@@ -15,38 +14,59 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      home: null,
-      homePrice: null,
-      downPayment: null,
-      // interestRate: null,
+      homePrice: 0,
+      downPayment: 0,
+      downPaymentPercent: 20,
+      interestRate: 0,
+      estimatedPayment: 0,
+      principleAndInterest: 0,
+      propertyTaxes: 0,
+      homeInsurance: 75,
+      mortgageInsuranceAndOther: 0,
+      loanTypes: [],
     };
 
-    // this.getRandomHouse = this.getRandomHouse.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   componentDidMount() {
     this.initialize();
-    console.log(mortgageOps.calculatePercentage(3250000, 20));
+  }
+
+  handleInputChange({ target }) {
+    const { name, value } = target;
+    if (!name) {
+      dbOps.getInterestRateByLoanType(value)
+        .then((rate) => this.setState({ interestRate: (rate * 100).toFixed(2) }));
+    } else {
+      this.setState({ [name]: value });
+    }
   }
 
   initialize() {
     dbOps.getRandomHome()
       .then((home) => {
-        this.setState({
-          home: home,
-          homePrice: home.price,
-          downPayment: mortgageOps.calculatePercentage(home.price, 20),
-        });
-        console.log(currency.format(home.price, { code: 'USD' }));
+        dbOps.getTaxByState(home.state)
+          .then((tax) => {
+            this.setState({
+              homePrice: Number(home.price),
+              downPayment: mortgageOps.calculatePercentage(home.price, 20),
+              propertyTaxes: mortgageOps.calculateTaxes(home.price, tax.effective_tax_rate),
+            });
+          });
+      });
+
+    dbOps.getLoanTypes()
+      .then((loans) => {
+        this.setState({ loanTypes: loans });
+        this.setState({ interestRate: loans[0].interest_rate * 100 });
       });
   }
 
-  // convertToCurrency(num) {
-  //   currency.format(num, { code: 'USD' });
-  // }
-
   render() {
-    // console.log(this.state.house);
+    const {
+      home, homePrice, downPayment, downPaymentPercent, interestRate, loanTypes,
+    } = this.state;
     return (
       <>
         <GlobalStyles />
@@ -55,9 +75,13 @@ class App extends React.Component {
             <div className="affordability-container">
               <Head />
               <Form
-                house={this.state.home}
-                homePrice={this.state.homePrice}
-                downPayment={this.state.downPayment}
+                house={home}
+                homePrice={homePrice}
+                downPayment={downPayment}
+                downPaymentPercent={downPaymentPercent}
+                interestRate={interestRate}
+                loanTypes={loanTypes}
+                handleInputChange={this.handleInputChange}
               />
               <Results />
             </div>
