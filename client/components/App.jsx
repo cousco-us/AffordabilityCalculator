@@ -44,7 +44,7 @@ class App extends React.Component {
           numberOfYears: loan.years,
         }));
     } else if (name === 'homePrice') {
-      await this.onHomePriceUpdate(name, value);
+      await this.onHomePriceUpdate(value);
     } else {
       await this.setState({ [name]: Number(value) });
     }
@@ -52,23 +52,13 @@ class App extends React.Component {
     this.estimatePayment();
   }
 
-  async onHomePriceUpdate(name, value) {
-    const {
-      homePrice,
-      downPaymentPercent,
-      taxRate,
-    } = this.state;
+  async onHomePriceUpdate(value) {
     // set new home price
     await this.updateHomePrice(value);
-    // this.setState({ [name]: Number(value) });
-
     // set new down payment
     await this.updateDownPayment();
-    // const newDownPayment = mortgageOps.calculatePercentage(homePrice, downPaymentPercent);
-    // this.setState({ downPayment: newDownPayment });
     // set new property taxes
-    // const newPropertyTaxes = mortgageOps.calculateTaxes(homePrice, taxRate);
-    // this.setState({ propertyTaxes: newPropertyTaxes });
+    await this.updatePropertyTaxes();
   }
 
   updateHomePrice(newPrice) {
@@ -83,6 +73,15 @@ class App extends React.Component {
     } = this.state;
     const newDownPayment = parseFloat((downPaymentPercent / 100) * homePrice);
     this.setState({ downPayment: newDownPayment });
+  }
+
+  updatePropertyTaxes() {
+    const {
+      homePrice,
+      taxRate,
+    } = this.state;
+    const newPropertyTaxes = mortgageOps.calculateTaxes(homePrice, taxRate);
+    this.setState({ propertyTaxes: newPropertyTaxes });
   }
 
   async initialize() {
