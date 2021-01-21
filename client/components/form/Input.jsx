@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
-import currency from 'currency-formatter';
+import PropTypes from 'prop-types';
 
-const Input = ({ id, name, value, valueType, handleInputChange }) => {
+const Input = ({
+  id, name, value, valueType, handleInputChange,
+}) => {
   let renderInput;
   if (valueType === '$') {
     // currency.format(value, { code: 'USD' })
@@ -16,8 +18,12 @@ const Input = ({ id, name, value, valueType, handleInputChange }) => {
   );
 };
 
-// Input.propTypes = {
-//   id: propTypes.string.isRequired,
-// };
-
 export default Input;
+
+Input.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  valueType: PropTypes.string.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+};
