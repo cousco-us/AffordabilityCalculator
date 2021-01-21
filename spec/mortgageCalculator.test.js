@@ -1,11 +1,11 @@
 const calculator = require('../lib/mortgageCalculator.js');
 
 test('mortgageCalculator exists', () => {
-  expect(!!calculator).toBe(true);
+  expect(!!calculator.mortgageCalculator).toBe(true);
 });
 
 test('mortgageCalculator is a function', () => {
-  expect(typeof calculator).toBe('function');
+  expect(typeof calculator.mortgageCalculator).toBe('function');
 });
 
 const obj1 = {
@@ -29,11 +29,11 @@ const obj3 = {
 };
 
 test('mortgageCalculator returns a number', () => {
-  expect(typeof calculator(obj1)).toBe('number');
+  expect(typeof calculator.mortgageCalculator(obj1)).toBe('number');
 });
 
 test('mortgageCalculator returns correct values', () => {
-  expect(calculator(obj1)).toBe(10697);
-  expect(calculator(obj2)).toBe(2068);
-  expect(calculator(obj3)).toBe(7115);
+  expect(calculator.mortgageCalculator(obj1)).toBe(10697);
+  expect(calculator.mortgageCalculator(obj2)).toBe(2068);
+  expect(calculator.mortgageCalculator(obj3)).toBe(7115);
 });

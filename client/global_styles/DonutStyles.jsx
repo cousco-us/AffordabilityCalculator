@@ -2,8 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 
 const DonutStyles = createGlobalStyle`
   .donut-text {
-    font: 16px/1.4em "Montserrat", Arial, sans-serif;
-    fill: #000;
+    font-family: TruliaSans, Roboto, "Segoe UI Bold", Arial, sans-serif;
+    font: 16px/1.4em;
+    fill: rgb(59, 65, 68);
     -moz-transform: translateY(0.25em);
     -ms-transform: translateY(0.25em);
     -webkit-transform: translateY(0.25em);
@@ -11,8 +12,9 @@ const DonutStyles = createGlobalStyle`
   }
 
   .donut-label-amount {
+    font-weight: 400;
+    color: rgb(59, 65, 68);
     font-size: 0.6em;
-    line-height: 1;
     text-anchor: middle;
     -moz-transform: translateY(-0.25em);
     -ms-transform: translateY(-0.25em);
@@ -22,7 +24,7 @@ const DonutStyles = createGlobalStyle`
 
   .donut-label-unit {
     font-size: 0.2em;
-    text-transform: uppercase;
+    font-weight: 100;
     text-anchor: middle;
     -moz-transform: translateY(0.7em);
     -ms-transform: translateY(0.7em);

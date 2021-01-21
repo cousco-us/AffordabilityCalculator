@@ -1,15 +1,29 @@
 import React, { Fragment } from 'react';
-import FormStyles from '../../global_styles/FormStyles.jsx';
+import PropTypes from 'prop-types';
 
-const Input = ({ id }) => (
-  <>
-    <FormStyles />
-    <input id={id} type="text" />
-  </>
-);
-
-// Input.propTypes = {
-//   id: propTypes.string.isRequired,
-// };
+const Input = ({
+  id, name, value, valueType, handleInputChange,
+}) => {
+  let renderInput;
+  if (valueType === '$') {
+    // currency.format(value, { code: 'USD' })
+    renderInput = <input value={value || 0} id={id} type="text" onChange={(e) => handleInputChange(e)} name={name} />;
+  } else if (valueType === '%') {
+    renderInput = <input value={value || 0} id={id} type="text" onChange={(e) => handleInputChange(e)} name={name} />;
+  }
+  return (
+    <>
+      {renderInput}
+    </>
+  );
+};
 
 export default Input;
+
+Input.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  valueType: PropTypes.string.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+};

@@ -5,6 +5,6 @@ import { shallow, mount } from 'enzyme';
 import Dropdown from '../client/components/form/Dropdown.jsx';
 
 describe('Dropdown component', () => {
-  const wrapper = shallow(<Dropdown />);
+  const wrapper = shallow(<Dropdown id={''} loanTypes={[]} handleInputChange={() => {}} />);
   it('exists', () => expect(wrapper.exists()).toBe(true));
 });

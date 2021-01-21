@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 // API
 app.get('/houses', Houses.getAll); // convenience dev
 app.get('/houses/:id', Houses.getById);
+app.get('/houses/random', Houses.getRandom);
 
 app.get('/loans', Loans.getAll); // convenience dev
 app.get('/loans/:id', Loans.getById);
