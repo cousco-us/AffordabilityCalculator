@@ -10,6 +10,16 @@ const getAll = (req, res) => {
   });
 };
 
+const getRandom = (req, res) => {
+  Houses.getRandom((err, house) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send(house);
+    }
+  });
+};
+
 const getById = (req, res) => {
   Houses.getById(req.params.id, (err, house) => {
     if (err) {
@@ -22,5 +32,6 @@ const getById = (req, res) => {
 
 module.exports = {
   getAll,
+  getRandom,
   getById,
 };

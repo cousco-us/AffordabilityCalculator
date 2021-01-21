@@ -7,7 +7,14 @@ import InputRight from './form/InputRight.jsx';
 import Dropdown from './form/Dropdown.jsx';
 import Range from './form/Range.jsx';
 
-const Form = () => (
+const tests = {
+  price: 970760,
+  downPayment: 194152,
+  downPaymentPercent: 20,
+  interestRate: 2.79,
+};
+
+const Form = ({home, homePrice}) => (
   <>
     <FormStyles />
     <div className="form-container">
@@ -17,10 +24,13 @@ const Form = () => (
             <div className="affordability-input-controls-container">
               <div className="affordability-input-controls">
                 <label className="input-label">Home Price</label>
-                <Input id="input-control-home-price-input" />
+                <Input
+                  value={homePrice}
+                  valueType="$"
+                  id="input-control-home-price-input"
+                />
               </div>
               <div className="">
-
               </div>
             </div>
           </div>
@@ -28,8 +38,16 @@ const Form = () => (
             <div className="affordability-input-controls-container">
               <div className="affordability-input-controls">
                 <label className="input-label">Down Payment</label>
-                <Input id="input-control-down-payment-dollar-input" />
-                <Input id="input-control-down-payment-percent-input" />
+                <Input
+                  value={tests.downPayment}
+                  valueType="$"
+                  id="input-control-down-payment-dollar-input"
+                />
+                <Input
+                  value={tests.downPaymentPercent}
+                  valueType="%"
+                  id="input-control-down-payment-percent-input"
+                />
               </div>
             </div>
           </div>
@@ -37,7 +55,11 @@ const Form = () => (
             <div className="affordability-input-controls-container">
               <div className="affordability-input-controls">
                 <label className="input-label">Interest Rate</label>
-                <Input id="input-control-interest-rate-input" />
+                <Input
+                  value={tests.interestRate}
+                  valueType="%"
+                  id="input-control-interest-rate-input"
+                />
               </div>
             </div>
           </div>
