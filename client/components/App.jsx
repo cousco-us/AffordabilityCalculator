@@ -46,7 +46,7 @@ class App extends React.Component {
     } else if (name === 'homePrice') {
       await this.onHomePriceUpdate(value);
     } else {
-      await this.setState({ [name]: Number(value) });
+      await this.setState({ [name]: parseFloat(value) });
     }
     await this.calculatePrincipleAndInterest();
     this.estimatePayment();
@@ -127,7 +127,7 @@ class App extends React.Component {
     const financialDetails = {
       homePrice,
       downPayment,
-      interestRate: interestRate / 100,
+      interestRate: interestRate / 100 || 0,
       numberOfYears,
     };
 
