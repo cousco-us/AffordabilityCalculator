@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import currency from 'currency-formatter';
-// import Axios from 'axios';
-import dbOps from '../../lib/databaseOperations.js';
 
+import dbOps from '../../lib/databaseOperations.js';
+import mortgageOps from '../../lib/mortgageCalculator.js';
 
 import GlobalStyles from '../global_styles/GlobalStyles.jsx';
 
@@ -17,7 +17,7 @@ class App extends React.Component {
     this.state = {
       home: null,
       homePrice: null,
-      // downPayment: null,
+      downPayment: null,
       // interestRate: null,
     };
 
@@ -26,6 +26,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.initialize();
+    console.log(mortgageOps.calculatePercentage(3250000, 20));
   }
 
   initialize() {
@@ -34,6 +35,7 @@ class App extends React.Component {
         this.setState({
           home: home,
           homePrice: home.price,
+          downPayment: mortgageOps.calculatePercentage(home.price, 20),
         });
         console.log(currency.format(home.price, { code: 'USD' }));
       });
@@ -52,7 +54,11 @@ class App extends React.Component {
           <div className="page-layout">
             <div className="affordability-container">
               <Head />
-              <Form house={this.state.home} homePrice={this.state.homePrice} />
+              <Form
+                house={this.state.home}
+                homePrice={this.state.homePrice}
+                downPayment={this.state.downPayment}
+              />
               <Results />
             </div>
           </div>

@@ -14,7 +14,7 @@ const tests = {
   interestRate: 2.79,
 };
 
-const Form = ({home, homePrice}) => (
+const Form = ({home, homePrice, downPayment}) => (
   <>
     <FormStyles />
     <div className="form-container">
@@ -39,7 +39,7 @@ const Form = ({home, homePrice}) => (
               <div className="affordability-input-controls">
                 <label className="input-label">Down Payment</label>
                 <Input
-                  value={tests.downPayment}
+                  value={downPayment}
                   valueType="$"
                   id="input-control-down-payment-dollar-input"
                 />
