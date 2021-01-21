@@ -60,13 +60,12 @@ class App extends React.Component {
             });
           });
       });
-    // console.log('line 63: ', 'get random house complete', this.state.homePrice);
+
     await dbOps.getLoanTypes()
       .then((loans) => {
         this.setState({ loans });
         this.setState({ interestRate: loans[0].interest_rate * 100 });
       });
-    // console.log('line 69: ', 'get loan types complete', this.state.interestRate);
   }
 
   estimatePayment() {
@@ -82,13 +81,22 @@ class App extends React.Component {
       + homeInsurance
       + mortgageInsuranceAndOther;
 
-    // console.log('line 85 estimate is : ', estimate);
     this.setState({ estimatedPayment: estimate });
   }
 
   render() {
     const {
-      home, homePrice, downPayment, downPaymentPercent, interestRate, loans, estimatedPayment,
+      home,
+      homePrice,
+      downPayment,
+      downPaymentPercent,
+      interestRate,
+      loans,
+      estimatedPayment,
+      principleAndInterest,
+      propertyTaxes,
+      homeInsurance,
+      mortgageInsuranceAndOther,
     } = this.state;
     return (
       <>
@@ -108,7 +116,12 @@ class App extends React.Component {
                 loans={loans}
                 handleInputChange={this.handleInputChange}
               />
-              <Results />
+              <Results
+                principleAndInterest={principleAndInterest}
+                propertyTaxes={propertyTaxes}
+                homeInsurance={homeInsurance}
+                mortgageInsuranceAndOther={mortgageInsuranceAndOther}
+              />
             </div>
           </div>
         </div>
