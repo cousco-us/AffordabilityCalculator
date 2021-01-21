@@ -9,7 +9,26 @@ const Donut = ({ donutData }) => (
     {/* {console.log(JSON.stringify(donutData))} */}
     {console.log(donutData)}
     <svg viewBox="0 0 36 36">
-      {/* <circle cx="18" cy="18" r="12" fill="#fff" role="presentation" /> */}
+      {
+        donutData.map(({
+          title, cx, cy, r, fill, strokeWidth, stroke, strokeDasharray, strokeDashoffset,
+        }) => (
+          <circle
+            key={title.split(' ').join('-')}
+            cx={cx}
+            cy={cy}
+            r={r}
+            fill={fill}
+            strokeWidth={strokeWidth}
+            stroke={stroke}
+            strokeDasharray={strokeDasharray}
+            strokeDashoffset={strokeDashoffset}
+          />
+        ))
+      }
+    </svg>
+    {/* <svg viewBox="0 0 36 36">
+      <circle cx="18" cy="18" r="12" fill="#fff" role="presentation" />
       <circle // blue = principal & interest
         cx="18"
         cy="18"
@@ -55,7 +74,7 @@ const Donut = ({ donutData }) => (
         strokeDasharray="11.508043497798148 88.49195650220184"
         strokeDashoffset="36.508043497798155"
       />
-    </svg>
+    </svg> */}
 
     {/* <svg width="100%" height="100%" viewBox="0 0 42 42" className="donut">
       <circle
