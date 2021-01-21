@@ -43,7 +43,7 @@ class App extends React.Component {
           numberOfYears: loan.years,
         }));
     } else if (name === 'homePrice') {
-      await this.setState({ [name]: Number(value) });
+      await this.onHomePriceUpdate(name, value);
     } else {
       await this.setState({ [name]: value });
     }
@@ -81,9 +81,19 @@ class App extends React.Component {
     await this.calculatePrincipleAndInterest();
   }
 
-  // onHomePriceUpdate() {
-
-  // }
+  async onHomePriceUpdate(name, value) {
+    const {
+      homePrice,
+      downPaymentPercent,
+    } = this.state;
+    // update principle and interst
+    await this.setState({ [name]: Number(value) });
+    // update down payment
+    this.setState({
+      downPayment: mortgageOps.calculatePercentage(homePrice, downPaymentPercent),
+    });
+    // update taxes
+  }
 
   async calculatePrincipleAndInterest() {
     const {
