@@ -18,6 +18,7 @@ class App extends React.Component {
       downPayment: 0,
       downPaymentPercent: 20,
       interestRate: 0,
+      numberOfYears: 0,
       estimatedPayment: 0,
       principleAndInterest: 0,
       propertyTaxes: 0,
@@ -37,7 +38,10 @@ class App extends React.Component {
     const { name, value } = target;
     if (!name) {
       dbOps.getInterestRateByLoanType(value)
-        .then((rate) => this.setState({ interestRate: (rate * 100).toFixed(2) }));
+        .then((loan) => this.setState({
+          interestRate: loan.interest_rate * 100,
+          numberOfYears: loan.years,
+        }));
     } else {
       this.setState({ [name]: value });
     }
@@ -64,8 +68,29 @@ class App extends React.Component {
     await dbOps.getLoanTypes()
       .then((loans) => {
         this.setState({ loans });
-        this.setState({ interestRate: loans[0].interest_rate * 100 });
+        this.setState({
+          interestRate: loans[0].interest_rate * 100,
+          numberOfYears: loans[0].years,
+        });
       });
+  }
+
+  calculatePrincipleAndInterest() {
+    const {
+      homePrice,
+      downPayment,
+      interestRate,
+      numberOfYears,
+    } = this.state;
+
+    const financialDetails = {
+      homePrice,
+      downPayment,
+      interestRate,
+      numberOfYears,
+    };
+
+    mortgageOps.mortgageCalculator(financialDetails);
   }
 
   estimatePayment() {
