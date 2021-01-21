@@ -42,6 +42,9 @@ class App extends React.Component {
           interestRate: loan.interest_rate * 100,
           numberOfYears: loan.years,
         }));
+    } else if (name === 'homePrice') {
+      this.setState({ [name]: Number(value) });
+      this.calculatePrincipleAndInterest();
     } else {
       this.setState({ [name]: value });
     }
@@ -73,9 +76,11 @@ class App extends React.Component {
           numberOfYears: loans[0].years,
         });
       });
+
+    await this.calculatePrincipleAndInterest();
   }
 
-  calculatePrincipleAndInterest() {
+  async calculatePrincipleAndInterest() {
     const {
       homePrice,
       downPayment,
@@ -90,7 +95,9 @@ class App extends React.Component {
       numberOfYears,
     };
 
-    mortgageOps.mortgageCalculator(financialDetails);
+    const total = await mortgageOps.mortgageCalculator(financialDetails);
+
+    this.setState({ principleAndInterest: total });
   }
 
   estimatePayment() {
