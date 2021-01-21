@@ -20,7 +20,6 @@ module.exports = {
               plugins: ['@babel/plugin-transform-runtime'],
             },
           },
-          { loader: 'source-map-loader' },
         ],
       },
     ],
