@@ -8,6 +8,7 @@ import Donut from './Donut.jsx';
 import ResultsList from './ResultsList.jsx';
 
 const Results = ({
+  totalPayment,
   principleAndInterest,
   propertyTaxes,
   homeInsurance,
@@ -20,7 +21,9 @@ const Results = ({
       <div className="donut-outer">
         <div className="donut-inner">
           <div className="donut">
-            <Donut />
+            <Donut
+              totalPayment={totalPayment}
+            />
           </div>
         </div>
       </div>

@@ -185,6 +185,7 @@ class App extends React.Component {
                 handleInputChange={this.handleInputChange}
               />
               <Results
+                totalPayment={estimatedPayment}
                 principleAndInterest={principleAndInterest}
                 propertyTaxes={propertyTaxes}
                 homeInsurance={homeInsurance}

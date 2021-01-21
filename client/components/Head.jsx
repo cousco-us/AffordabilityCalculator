@@ -12,7 +12,7 @@ const Head = ({ totalPayment }) => (
       <h4>Calculate your monthly mortgage payments</h4>
       <p>
         Your est. payment:
-        {` ${currency.format(totalPayment, { code: 'USD' })}`}
+        {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumSignificantDigits: 5 }).format(totalPayment)}
         /month*
       </p>
     </div>

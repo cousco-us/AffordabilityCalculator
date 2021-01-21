@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
+import currency from 'currency-formatter';
+
 import DonutStyles from '../global_styles/DonutStyles.jsx';
 
-const Donut = () => (
+const Donut = ({ totalPayment }) => (
   <>
     <DonutStyles />
     <svg width="100%" height="100%" viewBox="0 0 42 42" className="donut">
@@ -12,7 +14,7 @@ const Donut = () => (
       <circle className="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#377bbc" strokeWidth="3" strokeDasharray="30 70" strokeDashoffset="65" />
       <g className="donut-text">
         <text x="50%" y="50%" className="donut-label-amount">
-          $13,021
+          {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumSignificantDigits: 5 }).format(totalPayment)}
         </text>
         <text x="50%" y="50%" className="donut-label-unit">
           /month
