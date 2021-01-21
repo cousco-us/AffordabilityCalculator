@@ -43,8 +43,13 @@ class App extends React.Component {
     }
   }
 
-  initialize() {
-    dbOps.getRandomHome()
+  async initialize() {
+    await this.initializeFromDb();
+    this.estimatePayment();
+  }
+
+  async initializeFromDb() {
+    await dbOps.getRandomHome()
       .then((home) => {
         dbOps.getTaxByState(home.state)
           .then((tax) => {
@@ -55,17 +60,35 @@ class App extends React.Component {
             });
           });
       });
-
-    dbOps.getLoanTypes()
+    // console.log('line 63: ', 'get random house complete', this.state.homePrice);
+    await dbOps.getLoanTypes()
       .then((loans) => {
         this.setState({ loans });
         this.setState({ interestRate: loans[0].interest_rate * 100 });
       });
+    // console.log('line 69: ', 'get loan types complete', this.state.interestRate);
+  }
+
+  estimatePayment() {
+    const {
+      principleAndInterest,
+      propertyTaxes,
+      homeInsurance,
+      mortgageInsuranceAndOther,
+    } = this.state;
+
+    const estimate = principleAndInterest
+      + propertyTaxes
+      + homeInsurance
+      + mortgageInsuranceAndOther;
+
+    // console.log('line 85 estimate is : ', estimate);
+    this.setState({ estimatedPayment: estimate });
   }
 
   render() {
     const {
-      home, homePrice, downPayment, downPaymentPercent, interestRate, loans,
+      home, homePrice, downPayment, downPaymentPercent, interestRate, loans, estimatedPayment,
     } = this.state;
     return (
       <>
@@ -73,7 +96,9 @@ class App extends React.Component {
         <div className="main-content">
           <div className="page-layout">
             <div className="affordability-container">
-              <Head />
+              <Head
+                totalPayment={estimatedPayment}
+              />
               <Form
                 house={home}
                 homePrice={Number(homePrice)}
