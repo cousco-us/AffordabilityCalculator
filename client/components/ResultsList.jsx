@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import currency from 'currency-formatter';
 
-import DotStyles from '../global_styles/DotStyles.jsx';
-import ResultStyles from '../global_styles/ResultStyles.jsx';
+import DotStyles from '../global_styles/DotStyles';
+import ResultStyles from '../global_styles/ResultStyles';
 
 const ResultsList = ({
   principleAndInterest,

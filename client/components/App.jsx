@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
 
-import dbOps from '../../lib/databaseOperations.js';
-import mortgageOps from '../../lib/mortgageCalculator.js';
-import donutOps from '../../lib/donutHelper.js';
+import dbOps from '../../lib/databaseOperations';
+import mortgageOps from '../../lib/mortgageCalculator';
+import donutOps from '../../lib/donutHelper';
 
-import GlobalStyles from '../global_styles/GlobalStyles.jsx';
+import GlobalStyles from '../global_styles/GlobalStyles';
 
-import Head from './Head.jsx';
-import Form from './Form.jsx';
-import Results from './Results.jsx';
+import Head from './Head';
+import Form from './Form';
+import Results from './Results';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,8 +24,6 @@ class App extends React.Component {
         fill: 'transparent',
         strokeWidth: '3.8',
         stroke: 'rgb(5, 34, 134)',
-        // strokeDasharray: donutOps.percentageSplit(principleAndInterest, estimatedPayment).join(' '),
-        // strokeDashoffset: '25',
       },
       {
         title: 'property taxes',
@@ -36,8 +34,6 @@ class App extends React.Component {
         fill: 'transparent',
         strokeWidth: '3.8',
         stroke: 'rgb(0, 173, 187)',
-        // strokeDasharray: donutOps.percentageSplit(propertyTaxes, estimatedPayment).join(' '),
-        // strokeDashoffset: donutOps.relativeOffset(propertyTaxes, estimatedPayment),
       },
       {
         title: 'home insurance',
@@ -48,8 +44,6 @@ class App extends React.Component {
         fill: 'transparent',
         strokeWidth: '3.8',
         stroke: 'rgb(194, 213, 0)',
-        // strokeDasharray: donutOps.percentageSplit(homeInsurance, estimatedPayment).join(' '),
-        // strokeDashoffset: '25',
       },
       {
         title: 'mortgage insurance & other',
@@ -60,8 +54,6 @@ class App extends React.Component {
         fill: 'transparent',
         strokeWidth: '3.8',
         stroke: 'rgb(206, 182, 255)',
-        // strokeDasharray: donutOps.percentageSplit(mortgageInsuranceAndOther, estimatedPayment).join(' '),
-        // strokeDashoffset: '25',
       },
     ];
 

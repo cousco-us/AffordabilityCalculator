@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ResultStyles from '../global_styles/ResultStyles.jsx';
+import ResultStyles from '../global_styles/ResultStyles';
 
-import Donut from './Donut.jsx';
-import ResultsList from './ResultsList.jsx';
+import Donut from './Donut';
+import ResultsList from './ResultsList';
 
 const Results = ({
-  totalPayment,
   principleAndInterest,
   propertyTaxes,
   homeInsurance,
@@ -16,7 +15,6 @@ const Results = ({
 }) => (
   <div id="results">
     <ResultStyles />
-    <h1>Results</h1>
     <div className="results-container">
       <div className="donut-outer">
         <div className="donut-inner">
@@ -46,4 +44,5 @@ Results.propTypes = {
   propertyTaxes: PropTypes.number.isRequired,
   homeInsurance: PropTypes.number.isRequired,
   mortgageInsuranceAndOther: PropTypes.number.isRequired,
+  donutData: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };
