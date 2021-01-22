@@ -67,6 +67,14 @@ h1 {
     line-height: 1.5;
   }
 
+  /// FORM FONT STYLES ////
+  .form-title {
+    letter-spacing: -0.1px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
 `;
 
 export default FontStyles;
