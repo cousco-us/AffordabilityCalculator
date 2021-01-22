@@ -196,7 +196,7 @@ class App extends React.Component {
         strokeWidth: '3.8',
         stroke: 'rgb(194, 213, 0)',
         strokeDasharray: donutOps.percentageSplit(homeInsurance, estimatedPayment).join(' '),
-        strokeDashoffset: '25',
+        // strokeDashoffset: '25',
       },
       {
         title: 'mortgage insurance & other',
@@ -207,7 +207,7 @@ class App extends React.Component {
         strokeWidth: '3.8',
         stroke: 'rgb(206, 182, 255)',
         strokeDasharray: donutOps.percentageSplit(mortgageInsuranceAndOther, estimatedPayment).join(' '),
-        strokeDashoffset: '25',
+        // strokeDashoffset: '25',
       },
     ];
 
