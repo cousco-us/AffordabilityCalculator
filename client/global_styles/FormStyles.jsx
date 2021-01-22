@@ -11,47 +11,36 @@ const FormStyles = createGlobalStyle`
   }
 
   .form-cell {
-    // container styles
     display: flex;
     flex-direction: column;
     min-width: 33%;
-
-    // content styles
   }
 
   .form-control {
     display: flex;
+    padding: 6px;
+    align-items: center;
   }
 
   .form-control title-and-input {
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: stretch;
-    // align-content: space-between;
 
-    flex-direction: row;
-    flex-wrap: no-wrap;
-    // justify-content: flex-end;
   }
 
   .form-title {
-    // align-self: flex-start;
-    flex-grow: 1;
     order: 1;
   }
 
   .form-input {
-    // align-self: flex-end;
-    flex-grow: 2;
     order: 2;
+    margin-left: auto;
   }
 
   .form-control slider {
-    // width: 100%;
+
   }
 
   .form-control dropdown {
-    width: 100%;
+
   }
 
 
@@ -96,7 +85,7 @@ const FormStyles = createGlobalStyle`
     border-radius: 6px;
     border: solid 0.01em rgb(205, 209, 212);
 
-    padding: 6px;
+    padding: 12px 4px;
   }
 
 
