@@ -30,6 +30,42 @@ h1 {
     line-height: 0;
   }
 
+  .or-text {
+    text-align: center;
+
+    border-style: solid;
+    border-color: transparent;
+    border-width: 4px 2px 0px;
+
+    width: 100%;
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    display: block;
+
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .mortgage-rates-text a {
+    border-style: solid;
+    border-color: transparent;
+    border-width: 4px 2px 0px;
+
+    width: 100%;
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    display: block;
+
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+
+    color: rgb(0, 120, 130);
+    text-decoration: none;
+
+    font-size: 16px;
+    line-height: 1.5;
+  }
 
 `;
 

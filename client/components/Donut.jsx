@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
-import DonutStyles from '../global_styles/DonutStyles.jsx';
+import DonutStyles from '../global_styles/DonutStyles';
 
 const Donut = ({ totalPayment, donutData }) => (
   <>
