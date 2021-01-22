@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import FormStyles from '../global_styles/FormStyles';
+import Money from '../../lib/moneyHelper';
+
 import FontStyles from '../global_styles/FontStyles';
+import FormStyles from '../global_styles/FormStyles';
 
 import Input from './form/Input';
 import Dropdown from './form/Dropdown';
@@ -12,8 +14,8 @@ const Form = ({
   homePrice, downPayment, downPaymentPercent, interestRate, loans, handleInputChange,
 }) => (
   <>
-    <FormStyles />
     <FontStyles />
+    <FormStyles />
     <div className="form-container">
       <div className="form-cell">
         <div className="form-control title-and-input">
@@ -23,7 +25,8 @@ const Form = ({
           <div className="form-input">
             <Input
               id="input-control-home-price-input"
-              value={Number(homePrice)}
+              value={parseFloat(homePrice)}
+              // value={Money.formatMoney(homePrice)}
               name="homePrice"
               valueType="$"
               handleInputChange={handleInputChange}

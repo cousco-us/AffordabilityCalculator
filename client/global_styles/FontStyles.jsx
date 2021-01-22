@@ -26,7 +26,7 @@ h1 {
 
   p {
     letter-spacing: -0.1px;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 0;
   }
 
@@ -65,6 +65,11 @@ h1 {
 
     font-size: 16px;
     line-height: 1.5;
+  }
+
+  /// HEAD STYLES ////
+  .heading-container {
+    padding-bottom: 16px;
   }
 
   /// FORM FONT STYLES ////
