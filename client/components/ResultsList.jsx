@@ -3,12 +3,37 @@ import PropTypes from 'prop-types';
 import currency from 'currency-formatter';
 import styled from 'styled-components';
 
-import DotStyles from '../global_styles/DotStyles';
 import ResultStyles from '../global_styles/ResultStyles';
 import FontStyles from '../global_styles/FontStyles';
 
-const Button = styled.button`
+const Dot = styled.div`
+  background-color: ${
+  (props) => {
+    if (props.blue) {
+      return 'rgb(5, 34, 134)';
+    }
+    if (props.teal) {
+      return 'rgb(0, 173, 187)';
+    }
+    if (props.yellow) {
+      return 'rgb(194, 213, 0)';
+    }
+    if (props.purple) {
+      return 'rgb(206, 182, 255)';
+    }
+    return 'rgb(5, 34, 134)';
+  }
+};
+  letter-spacing: -0.1px;
+  line-height: 24px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+`;
 
+const Button = styled.button`
   width: 100%;
   -webkit-box-flex: 0;
   flex: 0 0 auto;
@@ -41,7 +66,6 @@ const ResultsList = ({
 }) => (
   <>
     <ResultStyles />
-    <DotStyles />
     <FontStyles />
     {/* <div className="results-table-container">
       <div className="results-table">
@@ -58,11 +82,10 @@ const ResultsList = ({
         </div>
       </div>
     </div> */}
-    <DotStyles />
     <div className="results-table">
       <div className="results-row">
         <div className="results-text-col">
-          <div className="table-title-dot" />
+          <Dot blue />
           Principal & Interest
         </div>
         <div className="results-money-col">
@@ -71,7 +94,7 @@ const ResultsList = ({
       </div>
       <div className="results-row">
         <div className="results-text-col">
-          <div className="table-title-dot" />
+          <Dot teal />
           Property Taxes
         </div>
         <div className="results-money-col">
@@ -80,7 +103,7 @@ const ResultsList = ({
       </div>
       <div className="results-row">
         <div className="results-text-col">
-          <div className="table-title-dot" />
+          <Dot yellow />
           Home Insurance
         </div>
         <div className="results-money-col">
@@ -89,7 +112,7 @@ const ResultsList = ({
       </div>
       <div className="results-row">
         <div className="results-text-col">
-          <div className="table-title-dot" />
+          <Dot purple />
           Mortgage ins. & other
         </div>
         <div className="results-money-col">
