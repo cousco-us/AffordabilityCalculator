@@ -24,8 +24,14 @@ const FormStyles = createGlobalStyle`
   }
 
   .form-control title-and-input {
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: stretch;
+    // align-content: space-between;
+
     flex-direction: row;
     flex-wrap: no-wrap;
+    // justify-content: flex-end;
   }
 
   .form-title {
@@ -54,9 +60,9 @@ const FormStyles = createGlobalStyle`
     letter-spacing: -0.1px;
     font-size: 16px;
     line-height: 1.5;
-    padding: 4px;
+    padding: 6px;
     border-radius: 6px;
-    border-width: 1px;
+    border: solid 0.01em rgb(205, 209, 212);
   }
 
   #input-control-home-price-input {
@@ -71,6 +77,7 @@ const FormStyles = createGlobalStyle`
   #input-control-down-payment-percent-input {
     width: 56px;
     border-radius: 0px 6px 6px 0px;
+    margin-left: -1px;
   }
 
   #input-control-interest-rate-input {
@@ -87,9 +94,9 @@ const FormStyles = createGlobalStyle`
     line-height: 1.5;
 
     border-radius: 6px;
-    border-width: 1px;
+    border: solid 0.01em rgb(205, 209, 212);
 
-    padding: 4px;
+    padding: 6px;
   }
 
 
