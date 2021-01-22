@@ -14,7 +14,7 @@ const DonutStyles = createGlobalStyle`
   .donut-label-amount {
     font-weight: 400;
     color: rgb(59, 65, 68);
-    font-size: 0.6em;
+    font-size: 0.4em;
     text-anchor: middle;
     -moz-transform: translateY(-0.25em);
     -ms-transform: translateY(-0.25em);
@@ -23,7 +23,7 @@ const DonutStyles = createGlobalStyle`
   }
 
   .donut-label-unit {
-    font-size: 0.2em;
+    font-size: 0.1em;
     font-weight: 100;
     text-anchor: middle;
     -moz-transform: translateY(0.7em);
