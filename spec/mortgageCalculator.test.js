@@ -27,6 +27,12 @@ const obj3 = {
   interestRate: 2.55 / 100,
   numberOfYears: 30,
 };
+const obj4 = {
+  homePrice: 3250000,
+  downPayment: 113750,
+  interestRate: 0,
+  numberOfYears: 15,
+};
 
 test('mortgageCalculator returns a number', () => {
   expect(typeof calculator.mortgageCalculator(obj1)).toBe('number');
@@ -36,4 +42,5 @@ test('mortgageCalculator returns correct values', () => {
   expect(calculator.mortgageCalculator(obj1)).toBe(10697);
   expect(calculator.mortgageCalculator(obj2)).toBe(2068);
   expect(calculator.mortgageCalculator(obj3)).toBe(7115);
+  expect(calculator.mortgageCalculator(obj4)).toBe(17424);
 });
