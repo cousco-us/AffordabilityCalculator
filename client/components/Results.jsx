@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import ResultStyles from '../global_styles/ResultStyles.jsx';
 
 import Donut from './Donut.jsx';
-
 import ResultsList from './ResultsList.jsx';
 
 const Results = ({

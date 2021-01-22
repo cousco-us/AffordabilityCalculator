@@ -7,7 +7,7 @@ const Donut = ({ donutData }) => (
   <>
     {/* <DonutStyles /> */}
     {/* {console.log(JSON.stringify(donutData))} */}
-    {console.log(donutData)}
+    {/* {console.log(donutData)} */}
     <svg viewBox="0 0 36 36">
       {
         donutData.map(({

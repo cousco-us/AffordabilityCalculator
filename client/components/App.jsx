@@ -14,6 +14,57 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    this.donutStarterData = [
+      {
+        title: 'principal & interest',
+        propName: 'principleAndInterest',
+        cx: '18',
+        cy: '18',
+        r: '15.915494309189533',
+        fill: 'transparent',
+        strokeWidth: '3.8',
+        stroke: 'rgb(5, 34, 134)',
+        // strokeDasharray: donutOps.percentageSplit(principleAndInterest, estimatedPayment).join(' '),
+        // strokeDashoffset: '25',
+      },
+      {
+        title: 'property taxes',
+        propName: 'propertyTaxes',
+        cx: '18',
+        cy: '18',
+        r: '15.915494309189533',
+        fill: 'transparent',
+        strokeWidth: '3.8',
+        stroke: 'rgb(0, 173, 187)',
+        // strokeDasharray: donutOps.percentageSplit(propertyTaxes, estimatedPayment).join(' '),
+        // strokeDashoffset: donutOps.relativeOffset(propertyTaxes, estimatedPayment),
+      },
+      {
+        title: 'home insurance',
+        propName: 'homeInsurance',
+        cx: '18',
+        cy: '18',
+        r: '15.915494309189533',
+        fill: 'transparent',
+        strokeWidth: '3.8',
+        stroke: 'rgb(194, 213, 0)',
+        // strokeDasharray: donutOps.percentageSplit(homeInsurance, estimatedPayment).join(' '),
+        // strokeDashoffset: '25',
+      },
+      {
+        title: 'mortgage insurance & other',
+        propName: 'mortgageInsuranceAndOther',
+        cx: '18',
+        cy: '18',
+        r: '15.915494309189533',
+        fill: 'transparent',
+        strokeWidth: '3.8',
+        stroke: 'rgb(206, 182, 255)',
+        // strokeDasharray: donutOps.percentageSplit(mortgageInsuranceAndOther, estimatedPayment).join(' '),
+        // strokeDashoffset: '25',
+      },
+    ];
+
     this.state = {
       homePrice: 0,
       downPayment: 0,
@@ -27,7 +78,7 @@ class App extends React.Component {
       homeInsurance: 75,
       mortgageInsuranceAndOther: 0,
       loans: [],
-      donutData: [],
+      donutData: this.donutStarterData,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -51,7 +102,8 @@ class App extends React.Component {
       await this.setState({ [name]: parseFloat(value) });
     }
     await this.calculatePrincipleAndInterest();
-    this.estimatePayment();
+    await this.estimatePayment();
+    this.buildDonutData();
   }
 
   async onHomePriceUpdate(value) {
@@ -157,61 +209,30 @@ class App extends React.Component {
 
   buildDonutData() {
     const {
+      donutData,
       estimatedPayment,
-      principleAndInterest,
-      propertyTaxes,
-      homeInsurance,
-      mortgageInsuranceAndOther,
     } = this.state;
 
-    const donutData = [
-      {
-        title: 'principal & interest',
-        cx: '18',
-        cy: '18',
-        r: '15.915494309189533',
-        fill: 'transparent',
-        strokeWidth: '3.8',
-        stroke: 'rgb(5, 34, 134)',
-        strokeDasharray: donutOps.percentageSplit(principleAndInterest, estimatedPayment).join(' '),
-        strokeDashoffset: '25',
-      },
-      {
-        title: 'property taxes',
-        cx: '18',
-        cy: '18',
-        r: '15.915494309189533',
-        fill: 'transparent',
-        strokeWidth: '3.8',
-        stroke: 'rgb(0, 173, 187)',
-        strokeDasharray: donutOps.percentageSplit(propertyTaxes, estimatedPayment).join(' '),
-        strokeDashoffset: donutOps.relativeOffset(propertyTaxes, estimatedPayment),
-      },
-      {
-        title: 'home insurance',
-        cx: '18',
-        cy: '18',
-        r: '15.915494309189533',
-        fill: 'transparent',
-        strokeWidth: '3.8',
-        stroke: 'rgb(194, 213, 0)',
-        strokeDasharray: donutOps.percentageSplit(homeInsurance, estimatedPayment).join(' '),
-        // strokeDashoffset: '25',
-      },
-      {
-        title: 'mortgage insurance & other',
-        cx: '18',
-        cy: '18',
-        r: '15.915494309189533',
-        fill: 'transparent',
-        strokeWidth: '3.8',
-        stroke: 'rgb(206, 182, 255)',
-        strokeDasharray: donutOps.percentageSplit(mortgageInsuranceAndOther, estimatedPayment).join(' '),
-        // strokeDashoffset: '25',
-      },
-    ];
+    const newDonutData = [];
+    let newStartingPoint = 25;
+    let percentageFilled = 0;
 
-    this.setState({ donutData });
+    const calculateStrokeOffset = (fill) => {
+      const oldStartingPoint = newStartingPoint;
+      percentageFilled += fill;
+      newStartingPoint += 100 - percentageFilled;
+      return String(oldStartingPoint);
+    };
+
+    donutData.forEach((obj) => {
+      const newObj = obj;
+      const strokeDash = donutOps.percentageSplit(this.state[obj.propName], estimatedPayment);
+      newObj.strokeDasharray = strokeDash.join(' ');
+      newObj.strokeDashoffset = calculateStrokeOffset(strokeDash[0]);
+      newDonutData.push(newObj);
+    });
+    console.log(newDonutData);
+    this.setState({ donutData: newDonutData });
   }
 
   render() {
