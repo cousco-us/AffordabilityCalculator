@@ -34,7 +34,12 @@ const Form = ({
           </div>
         </div>
         <div className="form-control slider">
-          <Range id="home-price" />
+          <Range
+            id="home-price"
+            name="homePrice"
+            value={homePrice}
+            handleInputChange={handleInputChange}
+          />
         </div>
       </div>
       <div className="form-cell">
@@ -60,7 +65,12 @@ const Form = ({
           </div>
         </div>
         <div className="form-control slider">
-          <Range id="down-payment" />
+          <Range
+            id="down-payment"
+            name="downPayment"
+            value={downPayment}
+            handleInputChange={handleInputChange}
+          />
         </div>
       </div>
       <div className="form-cell">
@@ -79,7 +89,12 @@ const Form = ({
           </div>
         </div>
         <div className="form-control slider">
-          <Range id="interest-rate" />
+          <Range
+            id="interest-rate"
+            name="interestRate"
+            value={interestRate}
+            handleInputChange={handleInputChange}
+          />
         </div>
       </div>
       <div className="form-cell">
