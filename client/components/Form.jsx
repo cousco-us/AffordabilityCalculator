@@ -8,7 +8,7 @@ import FormStyles from '../global_styles/FormStyles';
 
 import Input from './form/Input';
 import Dropdown from './form/Dropdown';
-// import Range from './form/Range';
+import Range from './form/Range';
 
 const Form = ({
   homePrice, downPayment, downPaymentPercent, interestRate, loans, handleInputChange,
@@ -34,7 +34,7 @@ const Form = ({
           </div>
         </div>
         <div className="form-control slider">
-          slider here
+          <Range id="home-price" />
         </div>
       </div>
       <div className="form-cell">

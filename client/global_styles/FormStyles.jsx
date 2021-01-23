@@ -36,7 +36,7 @@ const FormStyles = createGlobalStyle`
   }
 
   .form-control slider {
-
+    width: 100%;
   }
 
   .form-control dropdown {
@@ -88,7 +88,43 @@ const FormStyles = createGlobalStyle`
     padding: 12px 4px;
   }
 
+  .calculator-slider {
+    width: 100%;
+    height: 2px;
+    appearance: none;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
 
+    // background: linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) 86.9565%, rgb(205, 209, 212) 86.9565%, rgb(205, 209, 212) 100%);
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: solid 4px white;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: rgb(48, 118, 148);
+    filter: drop-shadow(0px 1px 1px black);
+    // margin-top: -4px;
+  }
+
+  // input[type=range]::-moz-range-thumb {
+  //   border: none;
+  //   height: 16px;
+  //   width: 16px;
+  //   border-radius: 50%;
+  //   background: goldenrod;
+  // }
+
+  // input[type=range]::-ms-thumb {
+  //   border: none;
+  //   height: 16px;
+  //   width: 16px;
+  //   border-radius: 50%;
+  //   background: goldenrod;
+  // }
 
   @media only screen and (max-width: 750px) {
     .form-container {
