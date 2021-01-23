@@ -91,6 +91,12 @@ class App extends React.Component {
         }));
     } else if (name === 'homePrice') {
       await this.onHomePriceUpdate(value);
+    } else if (name === 'downPayment') {
+      await this.setState({ [name]: parseFloat(value) });
+      // update down payment percent
+    } else if (name === 'downPaymentPercent') {
+      await this.setState({ [name]: parseFloat(value) });
+      await this.updateDownPayment();
     } else {
       await this.setState({ [name]: parseFloat(value) });
     }
