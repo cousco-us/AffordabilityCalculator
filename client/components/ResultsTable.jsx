@@ -28,8 +28,6 @@ const ResultsTable = ({ donutData }) => (
             {title}
           </div>
           <div className="table-col money">
-            {/* {moneyValue ? Money.formatMoney(moneyValue) : `$${moneyValue}`} */}
-            {/* {`$${moneyValue}`} */}
             { Money.formatMoney(moneyValue) }
           </div>
         </div>

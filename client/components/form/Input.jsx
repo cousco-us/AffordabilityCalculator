@@ -1,15 +1,59 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import Money from '../../../lib/moneyHelper';
+
 const Input = ({
-  id, name, value, valueType, handleInputChange,
+  id, name, value, handleInputChange,
 }) => {
   let renderInput;
-  if (valueType === '$') {
-    // currency.format(value, { code: 'USD' })
-    renderInput = <input value={value || 0} id={id} type="text" onChange={(e) => handleInputChange(e)} name={name} />;
-  } else if (valueType === '%') {
-    renderInput = <input value={value || 0} id={id} type="text" onChange={(e) => handleInputChange(e)} name={name} />;
+  if (name === 'interestRate') {
+    renderInput = (
+      <input
+        id={id}
+        name={name}
+        type="text"
+        value={Money.formatInterestRatePercent((value || 0))}
+        onChange={
+          (e) => handleInputChange({
+            name: e.target.name,
+            value: Money.percentStringToDecimal(e.target.value),
+          })
+        }
+      />
+    );
+  }
+  if (name === 'downPaymentPercent') {
+    renderInput = (
+      <input
+        id={id}
+        name={name}
+        type="text"
+        value={Money.formatDownPaymentPercent((value || 0))}
+        onChange={
+          (e) => handleInputChange({
+            name: e.target.name,
+            value: Money.percentStringToDecimal(e.target.value),
+          })
+        }
+      />
+    );
+  }
+  if (name === 'downPayment' || name === 'homePrice') {
+    renderInput = (
+      <input
+        id={id}
+        name={name}
+        type="text"
+        value={Money.formatMoney((value || 0))}
+        onChange={
+          (e) => handleInputChange({
+            name: e.target.name,
+            value: Money.moneyStringToDecimal(e.target.value),
+          })
+        }
+      />
+    );
   }
   return (
     <>
@@ -24,6 +68,5 @@ Input.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
-  valueType: PropTypes.string.isRequired,
   handleInputChange: PropTypes.func.isRequired,
 };

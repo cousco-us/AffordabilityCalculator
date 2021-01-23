@@ -3,7 +3,6 @@ import React, { Fragment } from 'react';
 import dbOps from '../../lib/databaseOperations';
 import mortgageOps from '../../lib/mortgageCalculator';
 import donutOps from '../../lib/donutHelper';
-// import Money from '../../lib/moneyHelper';
 
 import GlobalStyles from '../global_styles/GlobalStyles';
 
@@ -47,7 +46,7 @@ class App extends React.Component {
         stroke: 'rgb(194, 213, 0)',
       },
       {
-        title: 'Mortgage Insurance & Other',
+        title: 'Mortgage ins. & Other',
         propName: 'mortgageInsuranceAndOther',
         cx: '18',
         cy: '18',
@@ -81,8 +80,7 @@ class App extends React.Component {
     this.initialize();
   }
 
-  async handleInputChange({ target }) {
-    const { name, value } = target;
+  async handleInputChange({ name, value }) {
     if (!name) {
       await dbOps.getInterestRateByLoanType(value)
         .then((loan) => this.setState({
@@ -92,13 +90,13 @@ class App extends React.Component {
     } else if (name === 'homePrice') {
       await this.onHomePriceUpdate(value);
     } else if (name === 'downPayment') {
-      await this.setState({ [name]: parseFloat(value) });
+      await this.setState({ [name]: value });
       await this.updateDownPaymentPercent();
     } else if (name === 'downPaymentPercent') {
-      await this.setState({ [name]: parseFloat(value) });
+      await this.setState({ [name]: value });
       await this.updateDownPayment();
     } else {
-      await this.setState({ [name]: parseFloat(value) });
+      await this.setState({ [name]: value });
     }
     await this.calculatePrincipleAndInterest();
     await this.estimatePayment();
@@ -115,7 +113,7 @@ class App extends React.Component {
   }
 
   updateHomePrice(newPrice) {
-    const newHomePrice = parseFloat(newPrice);
+    const newHomePrice = newPrice;
     this.setState({ homePrice: newHomePrice });
   }
 
@@ -124,7 +122,7 @@ class App extends React.Component {
       homePrice,
       downPaymentPercent,
     } = this.state;
-    const newDownPayment = parseFloat((downPaymentPercent / 100) * homePrice);
+    const newDownPayment = ((downPaymentPercent / 100) * homePrice);
     this.setState({ downPayment: newDownPayment });
   }
 
@@ -133,7 +131,7 @@ class App extends React.Component {
       homePrice,
       downPayment,
     } = this.state;
-    const newDownPaymentPercent = parseFloat((downPayment / homePrice) * 100);
+    const newDownPaymentPercent = ((downPayment / homePrice) * 100);
     this.setState({ downPaymentPercent: newDownPaymentPercent });
   }
 

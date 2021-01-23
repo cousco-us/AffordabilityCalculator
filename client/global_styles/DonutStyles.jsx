@@ -23,8 +23,7 @@ const DonutStyles = createGlobalStyle`
   }
 
   .donut-label-unit {
-    font-size: 0.1em;
-    font-weight: 100;
+    font-size: 0.2em;
     text-anchor: middle;
     -moz-transform: translateY(0.7em);
     -ms-transform: translateY(0.7em);
