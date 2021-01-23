@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import Money from '../../lib/moneyHelper';
+// import Money from '../../lib/moneyHelper';
 
 import FontStyles from '../global_styles/FontStyles';
 import FormStyles from '../global_styles/FormStyles';
@@ -60,7 +60,7 @@ const Form = ({
           </div>
         </div>
         <div className="form-control slider">
-          slider here
+          <Range id="down-payment" />
         </div>
       </div>
       <div className="form-cell">
@@ -79,7 +79,7 @@ const Form = ({
           </div>
         </div>
         <div className="form-control slider">
-          slider here
+          <Range id="interest-rate" />
         </div>
       </div>
       <div className="form-cell">

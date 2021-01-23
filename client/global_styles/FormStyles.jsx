@@ -106,25 +106,8 @@ const FormStyles = createGlobalStyle`
     width: 20px;
     border-radius: 50%;
     background: rgb(48, 118, 148);
-    filter: drop-shadow(0px 1px 1px black);
-    // margin-top: -4px;
+    filter: drop-shadow(0.02em 0.08em 0.08em black);
   }
-
-  // input[type=range]::-moz-range-thumb {
-  //   border: none;
-  //   height: 16px;
-  //   width: 16px;
-  //   border-radius: 50%;
-  //   background: goldenrod;
-  // }
-
-  // input[type=range]::-ms-thumb {
-  //   border: none;
-  //   height: 16px;
-  //   width: 16px;
-  //   border-radius: 50%;
-  //   background: goldenrod;
-  // }
 
   @media only screen and (max-width: 750px) {
     .form-container {
