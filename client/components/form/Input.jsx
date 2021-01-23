@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Money from '../../../lib/moneyHelper';
 
 const Input = ({
-  id, name, value, valueType, handleInputChange,
+  id, name, value, handleInputChange,
 }) => {
   let renderInput;
   if (name === 'interestRate') {
@@ -53,6 +53,5 @@ Input.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
-  valueType: PropTypes.string.isRequired,
   handleInputChange: PropTypes.func.isRequired,
 };

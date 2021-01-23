@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-// import Money from '../../lib/moneyHelper';
-
 import FontStyles from '../global_styles/FontStyles';
 import FormStyles from '../global_styles/FormStyles';
 
@@ -27,7 +25,6 @@ const Form = ({
               id="input-control-home-price-input"
               value={parseFloat(homePrice)}
               name="homePrice"
-              valueType="$"
               handleInputChange={handleInputChange}
             />
           </div>
@@ -51,14 +48,12 @@ const Form = ({
               id="input-control-down-payment-dollar-input"
               value={Number(downPayment)}
               name="downPayment"
-              valueType="$"
               handleInputChange={handleInputChange}
             />
             <Input
               id="input-control-down-payment-percent-input"
               value={Number(downPaymentPercent)}
               name="downPaymentPercent"
-              valueType="%"
               handleInputChange={handleInputChange}
             />
           </div>
@@ -82,7 +77,6 @@ const Form = ({
               id="input-control-interest-rate-input"
               value={Number(interestRate)}
               name="interestRate"
-              valueType="%"
               handleInputChange={handleInputChange}
             />
           </div>
