@@ -46,7 +46,7 @@ class App extends React.Component {
         stroke: 'rgb(194, 213, 0)',
       },
       {
-        title: 'Mortgage Insurance & Other',
+        title: 'Mortgage ins. & Other',
         propName: 'mortgageInsuranceAndOther',
         cx: '18',
         cy: '18',
