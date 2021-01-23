@@ -36,6 +36,10 @@ const Results = ({
         />
       </div>
     </div>
+    <div>
+      *Data used for estimated monthly cost is provided by Trulia,
+      Zillow Group Marketplace, Inc., and other third party sources.
+    </div>
   </div>
 );
 
