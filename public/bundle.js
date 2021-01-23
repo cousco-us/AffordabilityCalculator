@@ -732,7 +732,7 @@ eval("var percentageSplit = function percentageSplit(slice, total) {\n  var slic
   \****************************/
 /***/ ((module) => {
 
-eval("var formatMoney = function formatMoney(value) {\n  var useValue = parseFloat(value);\n\n  if (useValue <= 0) {\n    return '$0';\n  }\n\n  var dollars = new Intl.NumberFormat('en-US', {\n    style: 'currency',\n    currency: 'USD' // maximumSignificantDigits: (Math.log10(useValue) + 1),\n\n  }).format(useValue);\n  return dollars;\n};\n\nvar moneyStringToDecimal = function moneyStringToDecimal(value) {\n  return parseFloat(value.slice(1).split(',').join(''));\n};\n\nmodule.exports = {\n  formatMoney: formatMoney,\n  moneyStringToDecimal: moneyStringToDecimal\n}; // formatMoney()\n\n//# sourceURL=webpack:///./lib/moneyHelper.js?");
+eval("var formatMoney = function formatMoney(value) {\n  var useValue = parseFloat(value);\n\n  if (useValue <= 0) {\n    return '$0';\n  }\n\n  var dollars = new Intl.NumberFormat('en-US', {\n    style: 'currency',\n    currency: 'USD' // maximumSignificantDigits: (Math.log10(useValue) + 1),\n\n  }).format(useValue);\n  return dollars;\n};\n\nvar moneyStringToDecimal = function moneyStringToDecimal(value) {\n  return parseFloat(value.slice(1).split(',').join(''));\n};\n\nmodule.exports = {\n  formatMoney: formatMoney,\n  moneyStringToDecimal: moneyStringToDecimal\n};\n\n//# sourceURL=webpack:///./lib/moneyHelper.js?");
 
 /***/ }),
 
