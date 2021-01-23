@@ -80,16 +80,19 @@ class App extends React.Component {
     this.initialize();
   }
 
-  async handleInputChange({ target }) {
-    const { name, value } = target;
+  async handleInputChange({ name, value }) {
+  // async handleInputChange({ target }) {
+  //   const { name, value } = target;
+    // console.log(name)
+    // console.log(parseFloat(value.slice(1)))
     if (!name) {
-      await dbOps.getInterestRateByLoanType(value)
+      await dbOps.getInterestRateByLoanType(parseFloat(value))
         .then((loan) => this.setState({
           interestRate: loan.interest_rate * 100,
           numberOfYears: loan.years,
         }));
     } else if (name === 'homePrice') {
-      await this.onHomePriceUpdate(value);
+      await this.onHomePriceUpdate(parseFloat(value));
     } else if (name === 'downPayment') {
       await this.setState({ [name]: parseFloat(value) });
       await this.updateDownPaymentPercent();

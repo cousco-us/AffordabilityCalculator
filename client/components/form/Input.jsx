@@ -14,7 +14,12 @@ const Input = ({
         name={name}
         type="text"
         value={Money.formatInterestRatePercent((value || 0))}
-        onChange={(e) => handleInputChange(e)}
+        onChange={
+          (e) => handleInputChange({
+            name: e.target.name,
+            value: Money.percentStringToDecimal(e.target.value),
+          })
+        }
       />
     );
   }
@@ -25,18 +30,29 @@ const Input = ({
         name={name}
         type="text"
         value={Money.formatDownPaymentPercent((value || 0))}
-        onChange={(e) => handleInputChange(e)}
+        onChange={
+          (e) => handleInputChange({
+            name: e.target.name,
+            value: Money.percentStringToDecimal(e.target.value),
+          })
+        }
       />
     );
   }
   if (name === 'downPayment' || name === 'homePrice') {
+    // {console.log('jooo')}
     renderInput = (
       <input
         id={id}
         name={name}
         type="text"
         value={Money.formatMoney((value || 0))}
-        onChange={(e) => handleInputChange(e)}
+        onChange={
+          (e) => handleInputChange({
+            name: e.target.name,
+            value: Money.moneyStringToDecimal(e.target.value),
+          })
+        }
       />
     );
   }
