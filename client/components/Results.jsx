@@ -31,6 +31,7 @@ const Results = ({
           propertyTaxes={propertyTaxes}
           homeInsurance={homeInsurance}
           mortgageInsuranceAndOther={mortgageInsuranceAndOther}
+          donutData={donutData}
         />
       </div>
     </div>

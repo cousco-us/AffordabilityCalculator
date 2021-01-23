@@ -23,6 +23,7 @@ const ResultStyles = createGlobalStyle`
     display: flex;
     flex-direction: column;
     width: 100%;
+    justify-content: flex-end;
   }
 
   .table-container {
@@ -32,6 +33,35 @@ const ResultStyles = createGlobalStyle`
   .button-container {
     display: flex;
     flex-direction: column;
+    margin-top: 22px;
+  }
+
+
+  .table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .table-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .table-col {
+    letter-spacing: -0.1px;
+    font-size: 16px;
+  }
+
+  .table-col.category {
+    order: 1;
+  }
+
+  .table-col.money {
+    order: 2;
+    font-weight: bold;
   }
 `;
 
