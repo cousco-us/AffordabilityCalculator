@@ -4,8 +4,20 @@ import PropTypes from 'prop-types';
 const Range = ({
   id, name, value, handleInputChange,
 }) => {
-  const useValue = value || 0;
-  const useMax = Math.max(((115 / 100) * useValue), 1500000);
+  let useValue;
+  let useMax;
+  let step;
+  if (name === 'homePrice') {
+    useValue = value || 0;
+    useMax = Math.max(((115 / 100) * useValue), 1500000);
+    step = 10;
+  }
+  if (name === 'interestRate') {
+    useValue = value || 0;
+    useMax = 6.5;
+    step = 0.1;
+  }
+
   return (
     <input
       id={`${id}-range`}
@@ -14,10 +26,7 @@ const Range = ({
       type="range"
       min="0"
       max={useMax}
-      // max="1500000"
-      // min={useValue - ((99 / 100) * useValue)}
-      // max={useValue + ((10 / 100) * useValue)}
-      step="10"
+      step={step}
       value={useValue}
       onChange={handleInputChange}
     />
