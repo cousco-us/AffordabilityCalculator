@@ -7,19 +7,20 @@ const FormStyles = createGlobalStyle`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 16px;
+    padding: 8px 16px;
   }
 
   .form-cell {
     display: flex;
     flex-direction: column;
-    min-width: 33%;
+    min-width: 31%;
+    margin: 0px 6px;
   }
 
   .form-control {
     display: flex;
-    padding: 6px;
     align-items: center;
+    margin: 15px 0px;
   }
 
   .form-control title-and-input {
@@ -37,11 +38,10 @@ const FormStyles = createGlobalStyle`
 
   .form-control.slider {
     width: 100%;
-    padding: 24px 0px;
   }
 
-  .form-control dropdown {
-
+  .form-control.dropdown {
+    margin-top: -7px;
   }
 
   input {

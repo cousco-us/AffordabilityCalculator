@@ -224,7 +224,6 @@ class App extends React.Component {
       newObj.strokeDashoffset = calculateStrokeOffset(strokeDash[0]);
       newDonutData.push(newObj);
     });
-    console.log(newDonutData);
     this.setState({ donutData: newDonutData });
   }
 

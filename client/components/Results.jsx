@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import ResultStyles from '../global_styles/ResultStyles';
@@ -14,20 +14,18 @@ const Results = ({
   mortgageInsuranceAndOther,
   donutData,
 }) => (
-  <div id="results">
+  <>
     <ResultStyles />
     <div className="results-container">
-      <div className="donut-outer">
-        <div className="donut-inner">
-          <div className="donut">
-            <Donut
-              totalPayment={totalPayment}
-              donutData={donutData}
-            />
-          </div>
+      <div className="results-cell donut-container">
+        <div className="inner-donut-container">
+          <Donut
+            totalPayment={totalPayment}
+            donutData={donutData}
+          />
         </div>
       </div>
-      <div className="results-list-container">
+      <div className="results-cell results-table-container">
         <ResultsList
           principleAndInterest={principleAndInterest}
           propertyTaxes={propertyTaxes}
@@ -40,7 +38,7 @@ const Results = ({
       *Data used for estimated monthly cost is provided by Trulia,
       Zillow Group Marketplace, Inc., and other third party sources.
     </div>
-  </div>
+  </>
 );
 
 export default Results;
