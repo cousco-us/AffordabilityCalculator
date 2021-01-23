@@ -40,7 +40,6 @@ const Input = ({
     );
   }
   if (name === 'downPayment' || name === 'homePrice') {
-    // {console.log('jooo')}
     renderInput = (
       <input
         id={id}

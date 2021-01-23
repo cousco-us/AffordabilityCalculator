@@ -81,26 +81,22 @@ class App extends React.Component {
   }
 
   async handleInputChange({ name, value }) {
-  // async handleInputChange({ target }) {
-  //   const { name, value } = target;
-    // console.log(name)
-    // console.log(parseFloat(value.slice(1)))
     if (!name) {
-      await dbOps.getInterestRateByLoanType(parseFloat(value))
+      await dbOps.getInterestRateByLoanType(value)
         .then((loan) => this.setState({
           interestRate: loan.interest_rate * 100,
           numberOfYears: loan.years,
         }));
     } else if (name === 'homePrice') {
-      await this.onHomePriceUpdate(parseFloat(value));
+      await this.onHomePriceUpdate(value);
     } else if (name === 'downPayment') {
-      await this.setState({ [name]: parseFloat(value) });
+      await this.setState({ [name]: value });
       await this.updateDownPaymentPercent();
     } else if (name === 'downPaymentPercent') {
-      await this.setState({ [name]: parseFloat(value) });
+      await this.setState({ [name]: value });
       await this.updateDownPayment();
     } else {
-      await this.setState({ [name]: parseFloat(value) });
+      await this.setState({ [name]: value });
     }
     await this.calculatePrincipleAndInterest();
     await this.estimatePayment();
@@ -117,7 +113,7 @@ class App extends React.Component {
   }
 
   updateHomePrice(newPrice) {
-    const newHomePrice = parseFloat(newPrice);
+    const newHomePrice = newPrice;
     this.setState({ homePrice: newHomePrice });
   }
 
@@ -126,7 +122,7 @@ class App extends React.Component {
       homePrice,
       downPaymentPercent,
     } = this.state;
-    const newDownPayment = parseFloat((downPaymentPercent / 100) * homePrice);
+    const newDownPayment = ((downPaymentPercent / 100) * homePrice);
     this.setState({ downPayment: newDownPayment });
   }
 
@@ -135,7 +131,7 @@ class App extends React.Component {
       homePrice,
       downPayment,
     } = this.state;
-    const newDownPaymentPercent = parseFloat((downPayment / homePrice) * 100);
+    const newDownPaymentPercent = ((downPayment / homePrice) * 100);
     this.setState({ downPaymentPercent: newDownPaymentPercent });
   }
 

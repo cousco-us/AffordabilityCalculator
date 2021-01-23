@@ -23,7 +23,7 @@ const Form = ({
           <div className="form-input">
             <Input
               id="input-control-home-price-input"
-              value={parseFloat(homePrice)}
+              value={homePrice}
               name="homePrice"
               handleInputChange={handleInputChange}
             />
