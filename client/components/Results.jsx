@@ -7,6 +7,7 @@ import Donut from './Donut';
 import ResultsList from './ResultsList';
 
 const Results = ({
+  totalPayment,
   principleAndInterest,
   propertyTaxes,
   homeInsurance,
@@ -20,6 +21,7 @@ const Results = ({
         <div className="donut-inner">
           <div className="donut">
             <Donut
+              totalPayment={totalPayment}
               donutData={donutData}
             />
           </div>
@@ -40,6 +42,7 @@ const Results = ({
 export default Results;
 
 Results.propTypes = {
+  totalPayment: PropTypes.number.isRequired,
   principleAndInterest: PropTypes.number.isRequired,
   propertyTaxes: PropTypes.number.isRequired,
   homeInsurance: PropTypes.number.isRequired,

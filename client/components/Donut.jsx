@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
-// import DonutStyles from '../global_styles/DonutStyles.jsx';
+import DonutStyles from '../global_styles/DonutStyles';
 
-const Donut = ({ donutData }) => (
+const Donut = ({ totalPayment, donutData }) => (
   <>
-    {/* <DonutStyles /> */}
+    <DonutStyles />
     <svg viewBox="0 0 36 36">
       {
         donutData.map(({
@@ -24,6 +24,16 @@ const Donut = ({ donutData }) => (
           />
         ))
       }
+      <g className="donut-text">
+        <text x="50%" y="50%" className="donut-label-amount">
+          {/* {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumSignificantDigits: 5 }).format(totalPayment)} */}
+          {/* {totalPayment} */}
+          {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumSignificantDigits: 5 }).format(totalPayment)}
+        </text>
+        <text x="50%" y="50%" className="donut-label-unit">
+          /month
+        </text>
+      </g>
     </svg>
 
     {/* <svg width="100%" height="100%" viewBox="0 0 42 42" className="donut">
@@ -52,5 +62,6 @@ const Donut = ({ donutData }) => (
 export default Donut;
 
 Donut.propTypes = {
+  totalPayment: PropTypes.number.isRequired,
   donutData: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };
