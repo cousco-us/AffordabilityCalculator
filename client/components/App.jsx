@@ -91,6 +91,12 @@ class App extends React.Component {
         }));
     } else if (name === 'homePrice') {
       await this.onHomePriceUpdate(value);
+    } else if (name === 'downPayment') {
+      await this.setState({ [name]: parseFloat(value) });
+      await this.updateDownPaymentPercent();
+    } else if (name === 'downPaymentPercent') {
+      await this.setState({ [name]: parseFloat(value) });
+      await this.updateDownPayment();
     } else {
       await this.setState({ [name]: parseFloat(value) });
     }
@@ -120,6 +126,15 @@ class App extends React.Component {
     } = this.state;
     const newDownPayment = parseFloat((downPaymentPercent / 100) * homePrice);
     this.setState({ downPayment: newDownPayment });
+  }
+
+  updateDownPaymentPercent() {
+    const {
+      homePrice,
+      downPayment,
+    } = this.state;
+    const newDownPaymentPercent = parseFloat((downPayment / homePrice) * 100);
+    this.setState({ downPaymentPercent: newDownPaymentPercent });
   }
 
   updatePropertyTaxes() {
