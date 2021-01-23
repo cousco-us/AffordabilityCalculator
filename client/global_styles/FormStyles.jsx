@@ -35,8 +35,9 @@ const FormStyles = createGlobalStyle`
     margin-left: auto;
   }
 
-  .form-control slider {
+  .form-control.slider {
     width: 100%;
+    padding: 24px 0px;
   }
 
   .form-control dropdown {
