@@ -17,6 +17,11 @@ const Range = ({
     useMax = 6.5;
     step = 0.1;
   }
+  if (name === 'downPaymentPercent') {
+    useValue = value || 0;
+    useMax = 30;
+    step = 1;
+  }
 
   return (
     <input

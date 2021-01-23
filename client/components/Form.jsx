@@ -66,9 +66,9 @@ const Form = ({
         </div>
         <div className="form-control slider">
           <Range
-            id="down-payment"
-            name="downPayment"
-            value={downPayment}
+            id="down-payment-percent"
+            name="downPaymentPercent"
+            value={downPaymentPercent}
             handleInputChange={handleInputChange}
           />
         </div>
