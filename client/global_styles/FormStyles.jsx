@@ -44,7 +44,6 @@ const FormStyles = createGlobalStyle`
 
   }
 
-
   input {
     font-family: TruliaSans, Roboto, "Segoe UI Bold", Arial, sans-serif;
     letter-spacing: -0.1px;
