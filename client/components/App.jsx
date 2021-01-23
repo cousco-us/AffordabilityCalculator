@@ -17,7 +17,7 @@ class App extends React.Component {
 
     this.donutStarterData = [
       {
-        title: 'principal & interest',
+        title: 'Principal & Interest',
         propName: 'principleAndInterest',
         cx: '18',
         cy: '18',
@@ -27,7 +27,7 @@ class App extends React.Component {
         stroke: 'rgb(5, 34, 134)',
       },
       {
-        title: 'property taxes',
+        title: 'Property Taxes',
         propName: 'propertyTaxes',
         cx: '18',
         cy: '18',
@@ -37,7 +37,7 @@ class App extends React.Component {
         stroke: 'rgb(0, 173, 187)',
       },
       {
-        title: 'home insurance',
+        title: 'Home Insurance',
         propName: 'homeInsurance',
         cx: '18',
         cy: '18',
@@ -47,7 +47,7 @@ class App extends React.Component {
         stroke: 'rgb(194, 213, 0)',
       },
       {
-        title: 'mortgage insurance & other',
+        title: 'Mortgage Insurance & Other',
         propName: 'mortgageInsuranceAndOther',
         cx: '18',
         cy: '18',
@@ -219,12 +219,13 @@ class App extends React.Component {
 
     donutData.forEach((obj) => {
       const newObj = obj;
-      const strokeDash = donutOps.percentageSplit(this.state[obj.propName], estimatedPayment);
+      const moneyValue = this.state[obj.propName];
+      const strokeDash = donutOps.percentageSplit(moneyValue, estimatedPayment);
       newObj.strokeDasharray = strokeDash.join(' ');
       newObj.strokeDashoffset = calculateStrokeOffset(strokeDash[0]);
+      newObj.moneyValue = moneyValue;
       newDonutData.push(newObj);
     });
-    console.log(newDonutData);
     this.setState({ donutData: newDonutData });
   }
 

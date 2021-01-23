@@ -1,83 +1,68 @@
 import { createGlobalStyle } from 'styled-components';
 
 const ResultStyles = createGlobalStyle`
+  .results-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
-.results-container {
-  display: flex;
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  justify-content: center;
-}
+  .results-cell {
+    display: flex;
+    min-width: 50%;
+    margin: 33px 0px;
+  }
 
-.donut-outer {
-  margin: 32px 32px 32px 16px;
-}
+  .inner-donut-container {
+    width: 280px;
+    height: 280px;
+    margin: auto;
+  }
 
-.donut-inner {
-  width: 280px;
-  position: relative;
-  box-sizing: border-box;
-  margin: auto;
-  flex-shrink: 0;
-}
+  .results-table-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-end;
+  }
 
-.donut {
-  width: 280px;
-  height: 280px;
-}
+  .table-container {
+    display: flex;
+  }
 
-.results-table-container {
-  box-sizing: border-box;
-  flex: 1 1 0%;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 16px 0px 16px 16px;
-  min-width: 50%;
-}
-
-.results-table {
-  flex: 1 1 0px;
-  width: 100%;
-  margin: 0px 8px;
-}
-
-.result-row-outer {
-
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  width: 100%;
-}
-
-.result-row-inner {
-  flex-direction: row;
-  -webkit-box-align: center;
-  // align-items: center;
-  display: flex;
-}
-
-.heading-col {
-  font-size: 16px;
-  line-height: 1.5;
-
-  // flex: 4;
-  flex: 1 1 0px;
-  width: 100%;
-  margin: 0px 8px;
-}
-
-.value-col {
-  // flex: 1;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 1.5;
-}
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 22px;
+  }
 
 
+  .table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .table-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .table-col {
+    letter-spacing: -0.1px;
+    font-size: 16px;
+  }
+
+  .table-col.category {
+    order: 1;
+  }
+
+  .table-col.money {
+    order: 2;
+    font-weight: bold;
+  }
 `;
 
 export default ResultStyles;
