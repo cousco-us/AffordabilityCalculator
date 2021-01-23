@@ -25,7 +25,7 @@ const Results = ({
           />
         </div>
       </div>
-      <div className="results-cell results-table-container">
+      <div className="results-cell">
         <ResultsList
           principleAndInterest={principleAndInterest}
           propertyTaxes={propertyTaxes}

@@ -82,7 +82,23 @@ const ResultsList = ({
         </div>
       </div>
     </div> */}
-    <div className="results-table">
+
+    <div className="results-table-container">
+      <div className="table-container">
+        table
+      </div>
+      <div className="button-container">
+        <Button>Get Pre-Qualified</Button>
+        <div className="or-text">
+          or
+        </div>
+        <div className="mortgage-rates-text">
+          <a href="#">See today's mortgage rates</a>
+        </div>
+      </div>
+    </div>
+
+    {/* <div className="results-table">
       <div className="results-row">
         <div className="results-text-col">
           <Dot blue />
@@ -128,7 +144,7 @@ const ResultsList = ({
       <div className="mortgage-rates-text">
         <a href="#">See today's mortgage rates</a>
       </div>
-    </div>
+    </div> */}
   </>
 );
 
