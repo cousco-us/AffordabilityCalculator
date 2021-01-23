@@ -26,7 +26,6 @@ const Form = ({
             <Input
               id="input-control-home-price-input"
               value={parseFloat(homePrice)}
-              // value={Money.formatMoney(homePrice)}
               name="homePrice"
               valueType="$"
               handleInputChange={handleInputChange}

@@ -1,15 +1,44 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import Money from '../../../lib/moneyHelper';
+
 const Input = ({
   id, name, value, valueType, handleInputChange,
 }) => {
   let renderInput;
-  if (valueType === '$') {
-    // currency.format(value, { code: 'USD' })
-    renderInput = <input value={value || 0} id={id} type="text" onChange={(e) => handleInputChange(e)} name={name} />;
-  } else if (valueType === '%') {
-    renderInput = <input value={value || 0} id={id} type="text" onChange={(e) => handleInputChange(e)} name={name} />;
+  if (name === 'interestRate') {
+    renderInput = (
+      <input
+        id={id}
+        name={name}
+        type="text"
+        value={Money.formatInterestRatePercent((value || 0))}
+        onChange={(e) => handleInputChange(e)}
+      />
+    );
+  }
+  if (name === 'downPaymentPercent') {
+    renderInput = (
+      <input
+        id={id}
+        name={name}
+        type="text"
+        value={Money.formatDownPaymentPercent((value || 0))}
+        onChange={(e) => handleInputChange(e)}
+      />
+    );
+  }
+  if (name === 'downPayment' || name === 'homePrice') {
+    renderInput = (
+      <input
+        id={id}
+        name={name}
+        type="text"
+        value={Money.formatMoney((value || 0))}
+        onChange={(e) => handleInputChange(e)}
+      />
+    );
   }
   return (
     <>
