@@ -86,7 +86,10 @@ class App extends React.Component {
         .then((loan) => this.setState({
           interestRate: loan.interest_rate * 100,
           numberOfYears: loan.years,
-        }));
+        }))
+        .catch((err) => {
+          console.log(err);
+        });
     } else if (name === 'homePrice') {
       await this.onHomePriceUpdate(value);
     } else if (name === 'downPayment') {

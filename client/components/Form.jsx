@@ -46,13 +46,13 @@ const Form = ({
           <div className="form-input">
             <Input
               id="input-control-down-payment-dollar-input"
-              value={Number(downPayment)}
+              value={downPayment}
               name="downPayment"
               handleInputChange={handleInputChange}
             />
             <Input
               id="input-control-down-payment-percent-input"
-              value={Number(downPaymentPercent)}
+              value={downPaymentPercent}
               name="downPaymentPercent"
               handleInputChange={handleInputChange}
             />
@@ -75,7 +75,7 @@ const Form = ({
           <div className="form-input">
             <Input
               id="input-control-interest-rate-input"
-              value={Number(interestRate)}
+              value={interestRate}
               name="interestRate"
               handleInputChange={handleInputChange}
             />

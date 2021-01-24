@@ -1,8 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Money from '../../../lib/moneyHelper';
+
 const Dropdown = ({ id, loans, handleInputChange }) => (
-  <select id={id} onChange={(e) => handleInputChange(e)}>
+  <select
+    id={id}
+    onChange={
+      (e) => handleInputChange({
+        value: e.target.value,
+      })
+    }
+  >
     {
       loans.map((loan) => (
         <option

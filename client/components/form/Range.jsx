@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Money from '../../../lib/moneyHelper';
+
 const Range = ({
   id, name, value, handleInputChange,
 }) => {
@@ -33,7 +35,12 @@ const Range = ({
       max={useMax}
       step={step}
       value={useValue}
-      onChange={handleInputChange}
+      onChange={
+        (e) => handleInputChange({
+          name: e.target.name,
+          value: e.target.value[0] === '$' ? Money.moneyStringToDecimal(e.target.value) : Money.percentStringToDecimal(e.target.value),
+        })
+      }
     />
   );
 };
