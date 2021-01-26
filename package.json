@@ -7,10 +7,12 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon server",
+    "start": "node server",
+    "start-nodemon": "nodemon",
     "build": "webpack",
     "build:watch": " webpack --watch",
     "db:seed": "node database/seed/seed.js",
+    "seed": "node database/seed/seed.js",
     "lint": "eslint .",
     "test": "jest"
   },
