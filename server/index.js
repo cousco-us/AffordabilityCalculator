@@ -1,12 +1,15 @@
 const express = require('express');
+const cors = require('cors');
 const Houses = require('./controllers/housesController.js');
 const Loans = require('./controllers/loansController.js');
 const Taxes = require('./controllers/taxesController.js');
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use('/', express.static('public'));
+app.use(cors());
+
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
