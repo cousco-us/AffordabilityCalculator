@@ -2,8 +2,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import ResultStyles from '../global_styles/ResultStyles';
-
 import ResultsTable from './ResultsTable';
 
 const Button = styled.a`
@@ -41,7 +39,6 @@ const ResultsList = ({
   donutData,
 }) => (
   <>
-    <ResultStyles />
     <div className="results-table-container">
       <div className="table-container">
         <ResultsTable donutData={donutData} />
