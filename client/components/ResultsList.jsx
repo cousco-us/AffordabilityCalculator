@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import ResultStyles from '../global_styles/ResultStyles';
-import FontStyles from '../global_styles/FontStyles';
 
 import ResultsTable from './ResultsTable';
 
@@ -43,7 +42,6 @@ const ResultsList = ({
 }) => (
   <>
     <ResultStyles />
-    <FontStyles />
     <div className="results-table-container">
       <div className="table-container">
         <ResultsTable donutData={donutData} />
