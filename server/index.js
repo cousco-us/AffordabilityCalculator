@@ -7,8 +7,8 @@ const Taxes = require('./controllers/taxesController.js');
 const app = express();
 const port = 3001;
 
-app.use('/', express.static('public'));
 app.use(cors());
+app.use('/', express.static('public'));
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
