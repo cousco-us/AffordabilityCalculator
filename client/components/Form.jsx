@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import FontStyles from '../global_styles/FontStyles';
 import FormStyles from '../global_styles/FormStyles';
 
 import Input from './form/Input';
@@ -12,7 +11,6 @@ const Form = ({
   homePrice, downPayment, downPaymentPercent, interestRate, loans, handleInputChange,
 }) => (
   <>
-    <FontStyles />
     <FormStyles />
     <div className="form-container">
       <div className="form-cell">

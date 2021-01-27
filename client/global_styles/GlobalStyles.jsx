@@ -1,25 +1,14 @@
-import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
-const GlobalStyles = createGlobalStyle`
-  body {
-    margin: 0px;
-    padding: 0px;
-    font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
-    color: rgb(59, 65, 68);
-    background-color: rgb(255, 255, 255);
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: -0.1px;
-  }
-
-  * {
-    outline: none;
-    box-sizing: border-box;
-  }
-
-  div {
-    display: block;
-  }
+const GlobalStyles = styled.div`
+  margin: 0px;
+  padding: 0px;
+  font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+  color: rgb(59, 65, 68);
+  background-color: rgb(255, 255, 255);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.1px;
 
   .main-content {
     background-color: rgb(255, 255, 255);

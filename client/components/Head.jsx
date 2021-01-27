@@ -1,11 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import FontStyles from '../global_styles/FontStyles';
-
 const Head = ({ totalPayment }) => (
   <>
-    <FontStyles />
     <div className="heading-container">
       <h1>Affordability</h1>
       <h2>Calculate your monthly mortgage payments</h2>
