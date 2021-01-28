@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
-const FormStyles = createGlobalStyle`
+const FormStyles = styled.div`
   .form-container {
     background-color: rgb(245, 246, 247);
     border-radius: 8px;

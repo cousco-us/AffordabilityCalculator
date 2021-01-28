@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
-const DonutStyles = createGlobalStyle`
+const DonutStyles = styled.div`
   .donut-text {
     font-family: TruliaSans, Roboto, "Segoe UI Bold", Arial, sans-serif;
     font: 16px/1.4em;

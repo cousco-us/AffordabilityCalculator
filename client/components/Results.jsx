@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import ResultStyles from '../global_styles/ResultStyles';
@@ -14,8 +14,7 @@ const Results = ({
   mortgageInsuranceAndOther,
   donutData,
 }) => (
-  <>
-    <ResultStyles />
+  <ResultStyles>
     <div className="results-container">
       <div className="results-cell donut-container">
         <div className="inner-donut-container">
@@ -39,7 +38,7 @@ const Results = ({
       *Data used for estimated monthly cost is provided by Trulia,
       Zillow Group Marketplace, Inc., and other third party sources.
     </div>
-  </>
+  </ResultStyles>
 );
 
 export default Results;

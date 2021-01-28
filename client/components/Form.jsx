@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import FormStyles from '../global_styles/FormStyles';
@@ -10,8 +10,7 @@ import Range from './form/Range';
 const Form = ({
   homePrice, downPayment, downPaymentPercent, interestRate, loans, handleInputChange,
 }) => (
-  <>
-    <FormStyles />
+  <FormStyles>
     <div className="form-container">
       <div className="form-cell">
         <div className="form-control title-and-input">
@@ -105,7 +104,7 @@ const Form = ({
         </div>
       </div>
     </div>
-  </>
+  </FormStyles>
 );
 
 export default Form;

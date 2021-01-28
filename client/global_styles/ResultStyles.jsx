@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
-const ResultStyles = createGlobalStyle`
+const ResultStyles = styled.div`
   .results-container {
     display: flex;
     flex-direction: row;

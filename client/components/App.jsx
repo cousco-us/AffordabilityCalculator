@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import dbOps from '../../lib/databaseOperations';
 import mortgageOps from '../../lib/mortgageCalculator';
 import donutOps from '../../lib/donutHelper';
 
 import GlobalStyles from '../global_styles/GlobalStyles';
-import FontStyles from '../global_styles/FontStyles';
 
 import Head from './Head';
 import Form from './Form';
@@ -262,37 +261,34 @@ class App extends React.Component {
       donutData,
     } = this.state;
     return (
-      <>
-        <FontStyles />
-        <GlobalStyles>
-          <div className="main-content">
-            <div className="page-layout">
-              <div className="affordability-container">
-                <Head
-                  totalPayment={estimatedPayment}
-                />
-                <Form
-                  house={home}
-                  homePrice={Number(homePrice)}
-                  downPayment={Number(downPayment)}
-                  downPaymentPercent={Number(downPaymentPercent)}
-                  interestRate={Number(interestRate)}
-                  loans={loans}
-                  handleInputChange={this.handleInputChange}
-                />
-                <Results
-                  totalPayment={estimatedPayment}
-                  principleAndInterest={principleAndInterest}
-                  propertyTaxes={propertyTaxes}
-                  homeInsurance={homeInsurance}
-                  mortgageInsuranceAndOther={mortgageInsuranceAndOther}
-                  donutData={donutData}
-                />
-              </div>
+      <GlobalStyles>
+        <div className="main-content">
+          <div className="page-layout">
+            <div className="affordability-container">
+              <Head
+                totalPayment={estimatedPayment}
+              />
+              <Form
+                house={home}
+                homePrice={Number(homePrice)}
+                downPayment={Number(downPayment)}
+                downPaymentPercent={Number(downPaymentPercent)}
+                interestRate={Number(interestRate)}
+                loans={loans}
+                handleInputChange={this.handleInputChange}
+              />
+              <Results
+                totalPayment={estimatedPayment}
+                principleAndInterest={principleAndInterest}
+                propertyTaxes={propertyTaxes}
+                homeInsurance={homeInsurance}
+                mortgageInsuranceAndOther={mortgageInsuranceAndOther}
+                donutData={donutData}
+              />
             </div>
           </div>
-        </GlobalStyles>
-      </>
+        </div>
+      </GlobalStyles>
     );
   }
 }

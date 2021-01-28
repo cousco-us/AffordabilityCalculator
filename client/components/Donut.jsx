@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import DonutStyles from '../global_styles/DonutStyles';
 
 const Donut = ({ totalPayment, donutData }) => (
-  <>
-    <DonutStyles />
+  <DonutStyles>
     <svg viewBox="0 0 36 36">
       <circle cx="18" cy="18" r="12" fill="#fff" role="presentation" />
       {
@@ -34,7 +33,7 @@ const Donut = ({ totalPayment, donutData }) => (
         </text>
       </g>
     </svg>
-  </>
+  </DonutStyles>
 );
 
 export default Donut;
