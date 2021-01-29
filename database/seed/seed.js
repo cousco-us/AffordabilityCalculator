@@ -12,8 +12,8 @@ if (useCsv) {
     csv().fromFile(housesCsv)
       .then((housesJson) => {
         db.House.insertMany(housesJson, (err, success) => {
-          if (err) { return err; }
-          return `Successfully created ${success.length} House records`;
+          if (err) { console.log(err); }
+          console.log(`Successfully created ${success.length} House records`);
         });
       })
       .catch(() => { console.log('you in trouble'); });
@@ -30,8 +30,8 @@ if (useCsv) {
       });
     }
     db.House.insertMany(houses, (err, success) => {
-      if (err) { return err; }
-      return `Successfully created ${success.length} House records`;
+      if (err) { console.log(err); }
+      console.log(`Successfully created ${success.length} House records`);
     });
   };
 }
@@ -42,8 +42,8 @@ const seedTaxes = () => {
   csv().fromFile(taxesCsv)
     .then((taxesJson) => {
       db.Tax.insertMany(taxesJson, (err, success) => {
-        if (err) { return err; }
-        return `Successfully created ${success.length} Tax records`;
+        if (err) { console.log(err); }
+        console.log(`Successfully created ${success.length} Tax records`);
       });
     })
     .catch(() => { console.log('you in trouble'); });
@@ -55,8 +55,8 @@ const seedLoans = () => {
   csv().fromFile(loansCsv)
     .then((loansJson) => {
       db.Loan.insertMany(loansJson, (err, success) => {
-        if (err) { return err; }
-        return `Successfully created ${success.length} Loan records`;
+        if (err) { console.log(err); }
+        console.log(`Successfully created ${success.length} Loan records`);
       });
     })
     .catch(() => { console.log('you in trouble'); });
@@ -76,6 +76,6 @@ seedTaxes();
 seedLoans();
 setTimeout(
   () => db.connection.close(),
-  9999,
+  999,
 );
 /// PLEASE FIX THIS ^^^

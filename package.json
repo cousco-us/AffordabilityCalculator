@@ -8,15 +8,12 @@
   },
   "scripts": {
     "start": "node server",
-    "start-nodemon": "nodemon",
-    "build": "webpack",
+    "dev:start": "node database/seed/seed.js && webpack && nodemon server",
     "build:watch": " webpack --watch",
     "db:seed": "node database/seed/seed.js",
-    "seed": "node database/seed/seed.js",
     "lint": "eslint .",
     "test": "jest",
-    "docker:start": "node database/seed/seed.js && webpack && node server",
-    "dockerize": "npm run db:seed && webpack && npm run start"
+    "docker:start": "node database/seed/seed.js && webpack && node server"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -24,6 +21,7 @@
     "csv-parser": "^3.0.0",
     "csvtojson": "^2.0.10",
     "currency-formatter": "^1.5.6",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "faker": "^5.1.0",
     "mongoose": "^5.11.11",

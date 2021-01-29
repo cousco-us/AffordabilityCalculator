@@ -1,3 +1,4 @@
+// require('dotenv').config('../.env');
 const express = require('express');
 const cors = require('cors');
 const Houses = require('./controllers/housesController.js');
@@ -5,7 +6,7 @@ const Loans = require('./controllers/loansController.js');
 const Taxes = require('./controllers/taxesController.js');
 
 const app = express();
-const port = 3001;
+const port = process.env.PRODUCTION_PORT || 9999;
 
 app.use(cors());
 app.use('/', express.static('public'));
