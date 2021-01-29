@@ -12,10 +12,11 @@ if (useCsv) {
     csv().fromFile(housesCsv)
       .then((housesJson) => {
         db.House.insertMany(housesJson, (err, success) => {
-          if (err) { return err; }
-          return `Successfully created ${success.length} House records`;
+          if (err) { console.log(err); }
+          console.log(`Successfully created ${success.length} House records`);
         });
-      });
+      })
+      .catch(() => { console.log('you in trouble'); });
   };
 } else {
   seedHouses = () => {
@@ -29,8 +30,8 @@ if (useCsv) {
       });
     }
     db.House.insertMany(houses, (err, success) => {
-      if (err) { return err; }
-      return `Successfully created ${success.length} House records`;
+      if (err) { console.log(err); }
+      console.log(`Successfully created ${success.length} House records`);
     });
   };
 }
@@ -41,10 +42,11 @@ const seedTaxes = () => {
   csv().fromFile(taxesCsv)
     .then((taxesJson) => {
       db.Tax.insertMany(taxesJson, (err, success) => {
-        if (err) { return err; }
-        return `Successfully created ${success.length} Tax records`;
+        if (err) { console.log(err); }
+        console.log(`Successfully created ${success.length} Tax records`);
       });
-    });
+    })
+    .catch(() => { console.log('you in trouble'); });
 };
 
 const seedLoans = () => {
@@ -53,19 +55,27 @@ const seedLoans = () => {
   csv().fromFile(loansCsv)
     .then((loansJson) => {
       db.Loan.insertMany(loansJson, (err, success) => {
-        if (err) { return err; }
-        return `Successfully created ${success.length} Loan records`;
+        if (err) { console.log(err); }
+        console.log(`Successfully created ${success.length} Loan records`);
       });
-    });
+    })
+    .catch(() => { console.log('you in trouble'); });
 };
 
+// const seed = async () => {
+//   await seedHouses();
+//   await seedTaxes();
+//   await seedLoans();
+//   db.connection.close();
+// };
+// seed();
+
+/// PLEASE FIX THIS vvv
 seedHouses();
 seedTaxes();
 seedLoans();
-
-/// PLEASE FIX THIS vvv
 setTimeout(
   () => db.connection.close(),
-  9999,
+  999,
 );
 /// PLEASE FIX THIS ^^^

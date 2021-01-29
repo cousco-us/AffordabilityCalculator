@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/calculator', { useNewUrlParser: true, useUnifiedTopology: true });
+const url = process.env.PRODUCTION_DB || 'mongodb://localhost/calculator';
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
 const housesSchema = new mongoose.Schema({
