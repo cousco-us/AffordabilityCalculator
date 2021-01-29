@@ -14,7 +14,8 @@
     "db:seed": "node database/seed/seed.js",
     "seed": "node database/seed/seed.js",
     "lint": "eslint .",
-    "test": "jest"
+    "test": "jest",
+    "docker-start": "webpack & node database/seed/seed.js & node server/index.js"
   },
   "dependencies": {
     "axios": "^0.21.1",

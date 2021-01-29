@@ -28,5 +28,5 @@ app.get('/taxes/:id', Taxes.getById);
 app.get('/taxes/state/:state', Taxes.getByState);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Example app listening at port ${port}`);
 });

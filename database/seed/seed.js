@@ -15,7 +15,8 @@ if (useCsv) {
           if (err) { return err; }
           return `Successfully created ${success.length} House records`;
         });
-      });
+      })
+      .catch(() => { console.log('you in trouble'); });
   };
 } else {
   seedHouses = () => {
@@ -44,7 +45,8 @@ const seedTaxes = () => {
         if (err) { return err; }
         return `Successfully created ${success.length} Tax records`;
       });
-    });
+    })
+    .catch(() => { console.log('you in trouble'); });
 };
 
 const seedLoans = () => {
@@ -56,7 +58,8 @@ const seedLoans = () => {
         if (err) { return err; }
         return `Successfully created ${success.length} Loan records`;
       });
-    });
+    })
+    .catch(() => { console.log('you in trouble'); });
 };
 
 seedHouses();
@@ -64,8 +67,8 @@ seedTaxes();
 seedLoans();
 
 /// PLEASE FIX THIS vvv
-setTimeout(
-  () => db.connection.close(),
-  9999,
-);
+// setTimeout(
+//   () => db.connection.close(),
+//   9999,
+// );
 /// PLEASE FIX THIS ^^^

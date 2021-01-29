@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/calculator', { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect('mongodb://localhost:27017/calculator', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://database/calculator', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
 const housesSchema = new mongoose.Schema({
