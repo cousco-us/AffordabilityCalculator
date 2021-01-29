@@ -62,13 +62,20 @@ const seedLoans = () => {
     .catch(() => { console.log('you in trouble'); });
 };
 
+// const seed = async () => {
+//   await seedHouses();
+//   await seedTaxes();
+//   await seedLoans();
+//   db.connection.close();
+// };
+// seed();
+
+/// PLEASE FIX THIS vvv
 seedHouses();
 seedTaxes();
 seedLoans();
-
-/// PLEASE FIX THIS vvv
-// setTimeout(
-//   () => db.connection.close(),
-//   9999,
-// );
+setTimeout(
+  () => db.connection.close(),
+  9999,
+);
 /// PLEASE FIX THIS ^^^

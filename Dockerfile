@@ -1,6 +1,6 @@
 # What image do you want to start building on?
-# FROM node:latest
-FROM node:15.4.0
+FROM node:latest
+# FROM node:15.4.0
 
 # Make a folder in your image where your app's source code can live
 RUN mkdir -p /src/app
@@ -18,4 +18,5 @@ RUN npm install
 EXPOSE 3001
 
 # How do you start your app?
-CMD [ "npm", "docker-start" ]
+# CMD [ "npm", "start", "build", "db:seed" ]
+CMD [ "npm", "run", "docker:start" ]

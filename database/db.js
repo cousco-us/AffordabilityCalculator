@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 // mongoose.connect('mongodb://localhost:27017/calculator', { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connect('mongodb://database/calculator', { useNewUrlParser: true, useUnifiedTopology: true });
+// const url = process.env.CONNECTIONSTRING || 'mongodb://localhost/calculator';
+const url = 'mongodb://database/calculator';
+// const url = 'mongodb://localhost/calculator';
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect('mongodb://database/calculator', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
 const housesSchema = new mongoose.Schema({
