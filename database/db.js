@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const url = process.env.PRODUCTION_DB || 'mongodb://localhost/calculator';
+console.log(url);
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
