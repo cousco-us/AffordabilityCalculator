@@ -11,7 +11,7 @@ const DonutStyles = styled.div`
   }
 
   .donut-label-amount {
-    font-weight: 400;
+    font-weight: 700;
     color: rgb(59, 65, 68);
     font-size: 0.4em;
     text-anchor: middle;
@@ -22,12 +22,13 @@ const DonutStyles = styled.div`
   }
 
   .donut-label-unit {
-    font-size: 0.2em;
+    font-size: 0.15em;
     text-anchor: middle;
     -moz-transform: translateY(0.7em);
     -ms-transform: translateY(0.7em);
     -webkit-transform: translateY(0.7em);
     transform: translateY(0.7em);
+    letter-spacing: 0.1px;
   }
 `;
 
