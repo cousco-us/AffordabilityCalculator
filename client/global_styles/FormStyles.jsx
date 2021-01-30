@@ -88,6 +88,25 @@ const FormStyles = styled.div`
     padding: 12px 4px;
   }
 
+  ////////////////////////////////////
+  ////////////////////////////////////
+  input[type='range'] {
+    // overflow: hidden;
+    // width: 80px;
+    // -webkit-appearance: none;
+    // background-color: #9a905d;
+  }
+
+  input[type='range']::-webkit-slider-runnable-track {
+    // height: 10px;
+    // -webkit-appearance: none;
+    // color: #13bba4;
+    // margin-top: -1px;
+  }
+
+  ////////////////////////////////////
+  ////////////////////////////////////
+
   .calculator-slider {
     width: 100%;
     height: 2px;
@@ -95,6 +114,8 @@ const FormStyles = styled.div`
     outline: none;
     margin: 0px;
     padding: 0px;
+    transition: background 450ms ease-in;
+    -webkit-appearance: none;
 
     // background: linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) 86.9565%, rgb(205, 209, 212) 86.9565%, rgb(205, 209, 212) 100%);
   }
