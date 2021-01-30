@@ -104,8 +104,9 @@ const FormStyles = styled.div`
   }
 
   input[type=range]::-webkit-slider-runnable-track {
-    background: rgb(48, 118, 128);
     height: 2px;
+    background: rgb(48, 118, 128);
+    // background: linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) 50%, rgb(205, 209, 212) 50%, rgb(205, 209, 212) 100%);
     }
 
   input[type=range]::-webkit-slider-thumb {
