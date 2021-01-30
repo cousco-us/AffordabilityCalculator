@@ -6,22 +6,26 @@ const db = require('../db');
 const useCsv = false;
 let seedHouses;
 if (useCsv) {
-  seedHouses = async () => {
+  seedHouses = async (cb = () => {}) => {
     db.House.deleteMany({}, () => {});
     const housesCsv = path.join(__dirname, 'houses.csv');
     csv().fromFile(housesCsv)
       .then((housesJson) => {
         db.House.insertMany(housesJson, (err, success) => {
           // if (err) { console.log(err); }
-          if (err) { console.log('problem seeding houses'); }
+          if (err) {
+            console.log('problem seeding houses');
+          } else {
+            console.log('Successfully created House records');
+            cb();
+          }
           // console.log(`Successfully created ${success.length} House records`);
-          console.log('Successfully created House records');
         });
       })
       .catch(() => { console.log('you in trouble'); });
   };
 } else {
-  seedHouses = async () => {
+  seedHouses = async (cb = () => {}) => {
     db.House.deleteMany({}, () => {});
     const houses = [];
     for (let i = 0; i < 100; i += 1) {
@@ -37,21 +41,25 @@ if (useCsv) {
         console.log('problem seeding houses');
       } else {
         console.log('Successfully created House records');
+        cb();
       }
       // console.log(`Successfully created ${success.length} House records`);
     });
   };
 }
 
-const seedTaxes = async () => {
+const seedTaxes = async (cb = () => {}) => {
   db.Tax.deleteMany({}, () => {});
   const taxesCsv = path.join(__dirname, 'taxes.csv');
   csv().fromFile(taxesCsv)
     .then((taxesJson) => {
       db.Tax.insertMany(taxesJson, (err, success) => {
         // if (err) { console.log(err); }
-        if (err) { console.log('problem seeding taxes'); } else {
+        if (err) {
+          console.log('problem seeding taxes');
+        } else {
           console.log('Successfully created Tax records');
+          cb();
         }
         // console.log(`Successfully created ${success.length} Tax records`);
       });
@@ -59,7 +67,7 @@ const seedTaxes = async () => {
     .catch(() => { console.log('you in trouble'); });
 };
 
-const seedLoans = async (cb) => {
+const seedLoans = async (cb = () => {}) => {
   db.Loan.deleteMany({}, () => {});
   const loansCsv = path.join(__dirname, 'loans.csv');
   csv().fromFile(loansCsv)
@@ -69,9 +77,10 @@ const seedLoans = async (cb) => {
         // if (err) { console.log(err); }
         if (err) {
           console.log('problem seeding loans');
-          console.log(err);
+          // console.log(err);
         } else {
           console.log('Successfully created Loan records');
+          cb();
         }
         // console.log(`Successfully created ${success.length} Loan records`);
       });
@@ -147,14 +156,43 @@ const seedLoans = async (cb) => {
 //////////////////////
 //////////////////////
 //////////////////////
-//////////////////////
+///// HD Ticket #1 ///
 
-// /// PLEASE FIX THIS vvv
-seedHouses();
-seedTaxes();
-seedLoans();
-setTimeout(
-  () => db.connection.close(),
-  999,
-);
-/// PLEASE FIX THIS ^^^
+// const seed = async () => {
+//   await seedHouses();
+//   await seedTaxes();
+//   await seedLoans();
+//   return "anything?";
+//   // return db.connection.close();
+// };
+
+// const seedResults = seed();
+// // console.log(seedResults);
+// seedResults
+//   .resolve('success from resolve')
+//   // .then(db.connection.close());
+//   .then(console.log('this should be at the end of everything'));
+
+//////////////////////
+//////////////////////
+/// OBVIOUS ANSWER ///
+const seed = async () => {
+  await seedHouses();
+  await seedTaxes();
+  await seedLoans();
+  // db.connection.close();
+};
+seed()
+  .then(db.connection.close());
+
+// seedHouses(seedLoans(seedTaxes(db.connection.close())));
+
+/// PLEASE FIX THIS vvv
+// seedHouses();
+// seedTaxes();
+// seedLoans();
+// setTimeout(
+//   () => db.connection.close(),
+//   999,
+// );
+// / PLEASE FIX THIS ^^^
