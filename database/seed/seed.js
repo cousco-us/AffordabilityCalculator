@@ -3,7 +3,7 @@ const path = require('path');
 const csv = require('csvtojson');
 const db = require('../db');
 
-const useCsv = true;
+const useCsv = false;
 let seedHouses;
 if (useCsv) {
   seedHouses = async () => {
@@ -33,9 +33,12 @@ if (useCsv) {
     }
     db.House.insertMany(houses, (err, success) => {
       // if (err) { console.log(err); }
-      if (err) { console.log('problem seeding houses'); }
+      if (err) {
+        console.log('problem seeding houses');
+      } else {
+        console.log('Successfully created House records');
+      }
       // console.log(`Successfully created ${success.length} House records`);
-      console.log('Successfully created House records');
     });
   };
 }
@@ -47,9 +50,10 @@ const seedTaxes = async () => {
     .then((taxesJson) => {
       db.Tax.insertMany(taxesJson, (err, success) => {
         // if (err) { console.log(err); }
-        if (err) { console.log('problem seeding taxes'); }
+        if (err) { console.log('problem seeding taxes'); } else {
+          console.log('Successfully created Tax records');
+        }
         // console.log(`Successfully created ${success.length} Tax records`);
-        console.log('Successfully created Tax records');
       });
     })
     .catch(() => { console.log('you in trouble'); });
@@ -76,6 +80,11 @@ const seedLoans = async (cb) => {
     .catch(() => { console.log('you in trouble'); });
 };
 
+//////////////////////
+//////////////////////
+//////////////////////
+//////////////////////
+
 // const shouldBeAPromise = seedLoans();
 // console.log(shouldBeAPromise);
 // console.log(JSON.stringify(shouldBeAPromise));
@@ -87,22 +96,60 @@ const seedLoans = async (cb) => {
 // };
 // seed();
 
+//////////////////////
+//////////////////////
+//////////////////////
+//////////////////////
+
 // console.log(shouldBeAPromise);
 // const closeConnection = async () => db.connection.close;
 // const closeConnection = () => () => db.connection.close();
 // seedLoans(closeConnection());
 // Promise.all([seedLoans()]).then(db.connection.close());
 
-// const seed = async () => {
-//   // await seedHouses();
-//   // await seedTaxes();
-//   await seedLoans();
-//   db.connection.close();
-// };
-// seed();
-// .then(() => db.connection.close());
+//////////////////////
+//////////////////////
+//////////////////////
+//////////////////////
 
-/// PLEASE FIX THIS vvv
+// const seed = async () => {
+//   await seedHouses();
+//   await seedTaxes();
+//   await seedLoans();
+//   // await db.connection.close();
+// };
+// seed()
+  // .then(db.connection.close());
+  // .then(() => { db.connection.close(); });
+
+//////////////////////
+//////////////////////
+//////////////////////
+//////////////////////
+
+// const seed = async () => {
+//   try {
+//     await seedHouses();
+//     await seedTaxes();
+//     await seedLoans();
+//   } catch (err) {
+//     console.log('This some error text');
+//     console.log(err);
+//     console.log('This is the end of the error text');
+//   } finally {
+//     await db.connection.close();
+//   }
+// };
+
+// const seedResults = seed();
+// console.log(seedResults);
+
+//////////////////////
+//////////////////////
+//////////////////////
+//////////////////////
+
+// /// PLEASE FIX THIS vvv
 seedHouses();
 seedTaxes();
 seedLoans();
