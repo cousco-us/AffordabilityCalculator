@@ -1,81 +1,52 @@
 const faker = require('faker');
 const path = require('path');
 const csv = require('csvtojson');
-const db = require('../db.js');
+const db = require('../db');
 
-const useCsv = false;
-let seedHouses;
-if (useCsv) {
-  seedHouses = () => {
-    db.House.deleteMany({}, () => {});
-    const housesCsv = path.join(__dirname, 'houses.csv');
-    csv().fromFile(housesCsv)
-      .then((housesJson) => {
-        db.House.insertMany(housesJson, (err, success) => {
-          if (err) { console.log(err); }
-          console.log(`Successfully created ${success.length} House records`);
-        });
-      })
-      .catch(() => { console.log('you in trouble'); });
-  };
-} else {
-  seedHouses = () => {
-    db.House.deleteMany({}, () => {});
-    const houses = [];
-    for (let i = 0; i < 100; i += 1) {
-      houses.push({
-        price: Math.round(faker.finance.amount(95250, 10500000)),
-        zipcode: faker.address.zipCode().slice(0, 5),
-        state: faker.address.stateAbbr(),
-      });
-    }
-    db.House.insertMany(houses, (err, success) => {
-      if (err) { console.log(err); }
-      console.log(`Successfully created ${success.length} House records`);
+db.House.deleteMany({}, () => {});
+db.Loan.deleteMany({}, () => {});
+db.Tax.deleteMany({}, () => {});
+
+const generateFakeHouseData = () => {
+  const houses = [];
+  for (let i = 0; i < 100; i += 1) {
+    houses.push({
+      price: Math.round(faker.finance.amount(95250, 10500000)),
+      zipcode: faker.address.zipCode().slice(0, 5),
+      state: faker.address.stateAbbr(),
     });
-  };
-}
-
-const seedTaxes = () => {
-  db.Tax.deleteMany({}, () => {});
-  const taxesCsv = path.join(__dirname, 'taxes.csv');
-  csv().fromFile(taxesCsv)
-    .then((taxesJson) => {
-      db.Tax.insertMany(taxesJson, (err, success) => {
-        if (err) { console.log(err); }
-        console.log(`Successfully created ${success.length} Tax records`);
-      });
-    })
-    .catch(() => { console.log('you in trouble'); });
+  }
+  return houses;
+};
+const createHouseRecords = (houseData) => db.House.insertMany(houseData);
+const seedHouses = async () => {
+  await createHouseRecords(generateFakeHouseData())
+    .then((newRecords) => console.log(`successfully created ${newRecords.length} new home records`))
+    .catch((err) => console.log('problem seeding homes: ', err));
 };
 
-const seedLoans = () => {
-  db.Loan.deleteMany({}, () => {});
-  const loansCsv = path.join(__dirname, 'loans.csv');
-  csv().fromFile(loansCsv)
-    .then((loansJson) => {
-      db.Loan.insertMany(loansJson, (err, success) => {
-        if (err) { console.log(err); }
-        console.log(`Successfully created ${success.length} Loan records`);
-      });
-    })
-    .catch(() => { console.log('you in trouble'); });
+const createTaxRecords = (taxesData) => db.Tax.insertMany(taxesData);
+const seedTaxes = async () => {
+  await csv().fromFile(path.join(__dirname, 'taxes.csv'))
+    .then((json) => createTaxRecords(json))
+    .then((newRecords) => console.log(`successfully created ${newRecords.length} new tax records`))
+    .catch((err) => console.log('problem seeding taxes: ', err));
 };
 
-// const seed = async () => {
-//   await seedHouses();
-//   await seedTaxes();
-//   await seedLoans();
-//   db.connection.close();
-// };
-// seed();
+const createLoanRecords = (loansData) => db.Loan.insertMany(loansData);
+const seedLoans = async () => {
+  await csv().fromFile(path.join(__dirname, 'loans.csv'))
+    .then((json) => createLoanRecords(json))
+    .then((newRecords) => console.log(`successfully created ${newRecords.length} new loan records`))
+    .catch((err) => console.log('problem seeding loans: ', err));
+};
 
-/// PLEASE FIX THIS vvv
-seedHouses();
-seedTaxes();
-seedLoans();
-setTimeout(
-  () => db.connection.close(),
-  999,
-);
-/// PLEASE FIX THIS ^^^
+const seed = async () => {
+  await seedLoans();
+  await seedTaxes();
+  await seedHouses();
+  await console.log('ending gracefully...');
+  db.connection.close();
+};
+
+seed();
