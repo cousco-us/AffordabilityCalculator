@@ -73,13 +73,17 @@ const FormStyles = styled.div`
   }
 
   #input-control-interest-rate-dropdown-select {
+    @import url(https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap);
+    font-family: 'Cabin', Arial, Helvetica, sans-serif;
+    color: rgb(59, 65, 68);
+
     width: 100%;
     letter-spacing: -0.1px;
     font-weight: bold;
     font-size: 16px;
     line-height: 1.5;
 
-    border-radius: 6px;
+    border-radius: 8px;
     border: solid 0.01em rgb(205, 209, 212);
 
     padding: 12px 4px;
