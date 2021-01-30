@@ -1,6 +1,8 @@
 import styled from 'styled-components';
-
-const SRange = styled.input`
+// const RangeStyles = styled.input.attrs((props) => ({
+//   fillPercentage: (props.value / props.max) * 100,
+// }))`
+const RangeStyles = styled.input`
     width: 100%;
     height: 2px;
     appearance: none;
@@ -12,8 +14,8 @@ const SRange = styled.input`
 
   ::-webkit-slider-runnable-track {
     height: 2px;
-    background: rgb(48, 118, 128);
-    // background: linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) 50%, rgb(205, 209, 212) 50%, rgb(205, 209, 212) 100%);
+    // background: rgb(0, 120, 130)
+    background: linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${(props) => props.fillPercentage}%, rgb(205, 209, 212) ${(props) => props.fillPercentage}%, rgb(205, 209, 212) 100%);
     }
 
   ::-webkit-slider-thumb {
@@ -28,4 +30,4 @@ const SRange = styled.input`
   }
 `;
 
-export default SRange;
+export default RangeStyles;

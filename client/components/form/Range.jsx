@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import Money from '../../../lib/moneyHelper';
 
+import RangeStyles from './RangeStyles';
+
 const Range = ({
   id, name, value, handleInputChange,
 }) => {
@@ -26,7 +28,7 @@ const Range = ({
   }
 
   return (
-    <input
+    <RangeStyles
       id={`${id}-range`}
       name={name}
       className="calculator-slider"
@@ -35,6 +37,7 @@ const Range = ({
       max={useMax}
       step={step}
       value={useValue}
+      fillPercentage={(useValue / useMax) * 100}
       onChange={
         (e) => handleInputChange({
           name: e.target.name,
@@ -42,6 +45,22 @@ const Range = ({
         })
       }
     />
+    // <input
+    //   id={`${id}-range`}
+    //   name={name}
+    //   className="calculator-slider"
+    //   type="range"
+    //   min="0"
+    //   max={useMax}
+    //   step={step}
+    //   value={useValue}
+    //   onChange={
+    //     (e) => handleInputChange({
+    //       name: e.target.name,
+    //       value: e.target.value[0] === '$' ? Money.moneyStringToDecimal(e.target.value) : Money.percentStringToDecimal(e.target.value),
+    //     })
+    //   }
+    // />
   );
 };
 
