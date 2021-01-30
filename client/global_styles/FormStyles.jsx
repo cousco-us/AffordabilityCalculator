@@ -104,6 +104,9 @@ const FormStyles = styled.div`
     padding: 0px;
     transition: background 450ms ease-in;
     -webkit-appearance: none;
+
+    outline: none;
+    box-sizing: border-box;
   }
 
   @media only screen and (max-width: 750px) {
