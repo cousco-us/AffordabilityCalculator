@@ -95,6 +95,13 @@ const FormStyles = styled.div`
     filter: drop-shadow(0.02em 0.08em 0.08em black);
   }
 
+  input[type=text] {
+    @import url(https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap);
+    font-family: 'Cabin', Arial, Helvetica, sans-serif;
+    color: rgb(59, 65, 68);
+    letter-spacing: -0.1px;
+  }
+
   .calculator-slider {
     width: 100%;
     height: 2px;

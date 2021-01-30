@@ -71,12 +71,11 @@ const GlobalStyles = styled.div`
 
   p {
     font-size: 1em;
-    line-height: 1.5;
-    letter-spacing: -0.1px;
+    letter-spacing: 0.6px;
   }
+
   p.header-paragraph {
     font-size: 16px;
-    line-height: 1.5;
     margin-top: -12px;
     letter-spacing: 0.6px;
   }
