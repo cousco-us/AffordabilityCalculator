@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 const GlobalStyles = styled.div`
+  @import url(https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap);
+  font-family: 'Cabin', Arial, Helvetica, sans-serif;
+
   margin: 0px;
   padding: 0px;
-  font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
   color: rgb(59, 65, 68);
   background-color: rgb(255, 255, 255);
   font-size: 16px;
@@ -44,7 +46,6 @@ const GlobalStyles = styled.div`
 
   // GLOBAL FONT STYLES //
   * {
-    font-family: TruliaSans, Roboto, "Segoe UI Bold", Arial, sans-serif;
     color: rgb(59, 65, 68);
     outline: none;
     box-sizing: border-box;

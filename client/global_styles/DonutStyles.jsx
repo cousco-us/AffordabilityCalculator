@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const DonutStyles = styled.div`
   .donut-text {
-    font-family: TruliaSans, Roboto, "Segoe UI Bold", Arial, sans-serif;
     font: 16px/1.4em;
     fill: rgb(59, 65, 68);
     -moz-transform: translateY(0.25em);

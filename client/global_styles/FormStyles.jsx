@@ -45,7 +45,6 @@ const FormStyles = styled.div`
   }
 
   input {
-    font-family: TruliaSans, Roboto, "Segoe UI Bold", Arial, sans-serif;
     letter-spacing: -0.1px;
     font-size: 16px;
     line-height: 1.5;
@@ -75,8 +74,6 @@ const FormStyles = styled.div`
 
   #input-control-interest-rate-dropdown-select {
     width: 100%;
-
-    font-family: TruliaSans, Roboto, "Segoe UI Bold", Arial, sans-serif;
     letter-spacing: -0.1px;
     font-weight: bold;
     font-size: 16px;
@@ -88,24 +85,15 @@ const FormStyles = styled.div`
     padding: 12px 4px;
   }
 
-  ////////////////////////////////////
-  ////////////////////////////////////
-  input[type='range'] {
-    // overflow: hidden;
-    // width: 80px;
-    // -webkit-appearance: none;
-    // background-color: #9a905d;
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: solid 4px white;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: rgb(48, 118, 148);
+    filter: drop-shadow(0.02em 0.08em 0.08em black);
   }
-
-  input[type='range']::-webkit-slider-runnable-track {
-    // height: 10px;
-    // -webkit-appearance: none;
-    // color: #13bba4;
-    // margin-top: -1px;
-  }
-
-  ////////////////////////////////////
-  ////////////////////////////////////
 
   .calculator-slider {
     width: 100%;
@@ -116,18 +104,6 @@ const FormStyles = styled.div`
     padding: 0px;
     transition: background 450ms ease-in;
     -webkit-appearance: none;
-
-    // background: linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) 86.9565%, rgb(205, 209, 212) 86.9565%, rgb(205, 209, 212) 100%);
-  }
-
-  input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: solid 4px white;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background: rgb(48, 118, 148);
-    filter: drop-shadow(0.02em 0.08em 0.08em black);
   }
 
   @media only screen and (max-width: 750px) {
