@@ -45,7 +45,7 @@ const seed = async () => {
   await seedLoans();
   await seedTaxes();
   await seedHouses();
-  await console.log('ending gracefully...');
+  await console.log('Ending db seeding gracefully...');
   db.connection.close();
 };
 
