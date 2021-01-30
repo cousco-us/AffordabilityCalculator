@@ -45,7 +45,6 @@ const FormStyles = styled.div`
   }
 
   input {
-    font-family: TruliaSans, Roboto, "Segoe UI Bold", Arial, sans-serif;
     letter-spacing: -0.1px;
     font-size: 16px;
     line-height: 1.5;
@@ -74,29 +73,20 @@ const FormStyles = styled.div`
   }
 
   #input-control-interest-rate-dropdown-select {
-    width: 100%;
+    @import url(https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap);
+    font-family: 'Cabin', Arial, Helvetica, sans-serif;
+    color: rgb(59, 65, 68);
 
-    font-family: TruliaSans, Roboto, "Segoe UI Bold", Arial, sans-serif;
+    width: 100%;
     letter-spacing: -0.1px;
     font-weight: bold;
     font-size: 16px;
     line-height: 1.5;
 
-    border-radius: 6px;
+    border-radius: 8px;
     border: solid 0.01em rgb(205, 209, 212);
 
     padding: 12px 4px;
-  }
-
-  .calculator-slider {
-    width: 100%;
-    height: 2px;
-    appearance: none;
-    outline: none;
-    margin: 0px;
-    padding: 0px;
-
-    // background: linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) 86.9565%, rgb(205, 209, 212) 86.9565%, rgb(205, 209, 212) 100%);
   }
 
   input[type=range]::-webkit-slider-thumb {
@@ -107,6 +97,27 @@ const FormStyles = styled.div`
     border-radius: 50%;
     background: rgb(48, 118, 148);
     filter: drop-shadow(0.02em 0.08em 0.08em black);
+  }
+
+  input[type=text] {
+    @import url(https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap);
+    font-family: 'Cabin', Arial, Helvetica, sans-serif;
+    color: rgb(59, 65, 68);
+    letter-spacing: -0.1px;
+  }
+
+  .calculator-slider {
+    width: 100%;
+    height: 2px;
+    appearance: none;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+    transition: background 450ms ease-in;
+    -webkit-appearance: none;
+
+    outline: none;
+    box-sizing: border-box;
   }
 
   @media only screen and (max-width: 750px) {

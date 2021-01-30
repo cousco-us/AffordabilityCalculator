@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
 const GlobalStyles = styled.div`
+
+
   margin: 0px;
   padding: 0px;
-  font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
-  color: rgb(59, 65, 68);
   background-color: rgb(255, 255, 255);
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.1px;
 
   .main-content {
     background-color: rgb(255, 255, 255);
@@ -43,24 +40,18 @@ const GlobalStyles = styled.div`
   }
 
   // GLOBAL FONT STYLES //
-  * {
-    font-family: TruliaSans, Roboto, "Segoe UI Bold", Arial, sans-serif;
-    color: rgb(59, 65, 68);
-    outline: none;
-    box-sizing: border-box;
-    font-size: 12px;
-    line-height: 24px;
-  }
+  @import url(https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap);
+  font-family: 'Cabin', Arial, Helvetica, sans-serif;
+  color: rgb(59, 65, 68);
+  letter-spacing: -0.1px;
 
   h1 {
-    letter-spacing: -0.1px;
     font-weight: bold;
     font-size: 20px;
     line-height: 1.2;
   }
 
   h2 {
-    letter-spacing: -0.1px;
     font-weight: bold;
     font-size: 16px;
     line-height: 1.5;
@@ -80,8 +71,13 @@ const GlobalStyles = styled.div`
 
   p {
     font-size: 1em;
-    line-height: 1.5;
-    letter-spacing: -0.1px;
+    letter-spacing: 0.6px;
+  }
+
+  p.header-paragraph {
+    font-size: 16px;
+    margin-top: -12px;
+    letter-spacing: 0.6px;
   }
 
   .or-text {
