@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 const GlobalStyles = styled.div`
-
-
   margin: 0px;
   padding: 0px;
   background-color: rgb(255, 255, 255);
@@ -29,14 +27,6 @@ const GlobalStyles = styled.div`
   /// HEAD STYLES ////
   .heading-container {
     padding-bottom: 16px;
-  }
-
-  /// FORM FONT STYLES ////
-  .form-title {
-    letter-spacing: -0.1px;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 1.5;
   }
 
   // GLOBAL FONT STYLES //
