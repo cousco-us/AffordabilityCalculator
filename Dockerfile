@@ -17,5 +17,7 @@ RUN npm install
 # What port will the container talk to the outside world with once created?
 EXPOSE 3001
 
+# ENV PRODUCTION_DB=mongodb://database/calculator
+
 # How do you start your app?
 CMD [ "npm", "run", "docker:start" ]
