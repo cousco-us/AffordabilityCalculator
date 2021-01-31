@@ -5,7 +5,8 @@ const Loans = require('./controllers/loansController.js');
 const Taxes = require('./controllers/taxesController.js');
 
 const app = express();
-const port = process.env.PRODUCTION_PORT || 9999;
+// const port = process.env.PRODUCTION_PORT || 9999;
+const port = 3001;
 
 app.use(cors());
 app.use('/', express.static('public'));
@@ -28,5 +29,5 @@ app.get('/taxes/:id', Taxes.getById);
 app.get('/taxes/state/:state', Taxes.getByState);
 
 app.listen(port, () => {
-  console.log(`Example app listening at port ${port}`);
+  console.log(`AffordabilityCalculator service listening at port ${port}`);
 });
