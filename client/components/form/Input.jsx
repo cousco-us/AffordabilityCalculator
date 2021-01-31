@@ -4,13 +4,7 @@ import styled from 'styled-components';
 
 import Money from '../../../lib/moneyHelper';
 
-const InputStyles = styled.input.attrs((props) => ({
-  // we can define static props
-  type: 'text',
-
-  // or we can define dynamic ones
-  // size: props.size || "1em",
-}))`
+const InputStyles = styled.input`
   @import url(https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap);
   font-family: 'Cabin', Arial, Helvetica, sans-serif;
   letter-spacing: -0.1px;
