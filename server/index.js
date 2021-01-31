@@ -1,4 +1,3 @@
-// require('dotenv').config('../.env');
 const express = require('express');
 const cors = require('cors');
 const Houses = require('./controllers/housesController.js');
