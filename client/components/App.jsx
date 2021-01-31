@@ -53,9 +53,11 @@ class App extends React.Component {
     } else if (name === 'downPayment') {
       await this.setState({ [name]: value });
       await this.updateDownPaymentPercent();
+      // await this.updateMortgateInsuranceAndOther();
     } else if (name === 'downPaymentPercent') {
       await this.setState({ [name]: value });
       await this.updateDownPayment();
+      // await this.updateMortgateInsuranceAndOther();
     } else {
       await this.setState({ [name]: value });
     }
@@ -85,6 +87,7 @@ class App extends React.Component {
     } = this.state;
     const newDownPayment = ((downPaymentPercent / 100) * homePrice);
     this.setState({ downPayment: newDownPayment });
+    this.updateMortgateInsuranceAndOther();
   }
 
   updateDownPaymentPercent() {
@@ -94,6 +97,30 @@ class App extends React.Component {
     } = this.state;
     const newDownPaymentPercent = ((downPayment / homePrice) * 100);
     this.setState({ downPaymentPercent: newDownPaymentPercent });
+  }
+
+  updateMortgateInsuranceAndOther() {
+    const {
+      homePrice,
+      downPayment,
+      downPaymentPercent,
+    } = this.state;
+    const baseInsurance = Math.floor((homePrice - downPayment) * 0.000366);
+    if (downPaymentPercent < 5) {
+      this.setState({ mortgageInsuranceAndOther: baseInsurance + 250 });
+    }
+    if (downPaymentPercent < 10) {
+      this.setState({ mortgageInsuranceAndOther: baseInsurance + 175 });
+    }
+    if (downPaymentPercent < 15) {
+      this.setState({ mortgageInsuranceAndOther: baseInsurance + 100 });
+    }
+    if (downPaymentPercent < 20) {
+      this.setState({ mortgageInsuranceAndOther: baseInsurance });
+    }
+    if (downPaymentPercent >= 20) {
+      this.setState({ mortgageInsuranceAndOther: 0 });
+    }
   }
 
   updatePropertyTaxes() {
