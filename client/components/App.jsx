@@ -3,6 +3,7 @@ import React from 'react';
 import dbOps from '../../lib/databaseOperations';
 import mortgageOps from '../../lib/mortgageCalculator';
 import donutOps from '../../lib/donutHelper';
+import donutStarterData from '../../lib/donutStarterData';
 
 import GlobalStyles from '../global_styles/GlobalStyles';
 
@@ -13,49 +14,6 @@ import Results from './Results';
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-    this.donutStarterData = [
-      {
-        title: 'Principal & Interest',
-        propName: 'principleAndInterest',
-        cx: '18',
-        cy: '18',
-        r: '15.915494309189533',
-        fill: 'transparent',
-        strokeWidth: '3.8',
-        stroke: 'rgb(5, 34, 134)',
-      },
-      {
-        title: 'Property Taxes',
-        propName: 'propertyTaxes',
-        cx: '18',
-        cy: '18',
-        r: '15.915494309189533',
-        fill: 'transparent',
-        strokeWidth: '3.8',
-        stroke: 'rgb(0, 173, 187)',
-      },
-      {
-        title: 'Home Insurance',
-        propName: 'homeInsurance',
-        cx: '18',
-        cy: '18',
-        r: '15.915494309189533',
-        fill: 'transparent',
-        strokeWidth: '3.8',
-        stroke: 'rgb(194, 213, 0)',
-      },
-      {
-        title: 'Mortgage ins. & Other',
-        propName: 'mortgageInsuranceAndOther',
-        cx: '18',
-        cy: '18',
-        r: '15.915494309189533',
-        fill: 'transparent',
-        strokeWidth: '3.8',
-        stroke: 'rgb(206, 182, 255)',
-      },
-    ];
 
     this.state = {
       homePrice: 0,
@@ -70,7 +28,7 @@ class App extends React.Component {
       homeInsurance: 75,
       mortgageInsuranceAndOther: 0,
       loans: [],
-      donutData: this.donutStarterData,
+      donutData: donutStarterData,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -95,9 +53,11 @@ class App extends React.Component {
     } else if (name === 'downPayment') {
       await this.setState({ [name]: value });
       await this.updateDownPaymentPercent();
+      // await this.updateMortgateInsuranceAndOther();
     } else if (name === 'downPaymentPercent') {
       await this.setState({ [name]: value });
       await this.updateDownPayment();
+      // await this.updateMortgateInsuranceAndOther();
     } else {
       await this.setState({ [name]: value });
     }
@@ -127,6 +87,7 @@ class App extends React.Component {
     } = this.state;
     const newDownPayment = ((downPaymentPercent / 100) * homePrice);
     this.setState({ downPayment: newDownPayment });
+    this.updateMortgateInsuranceAndOther();
   }
 
   updateDownPaymentPercent() {
@@ -136,6 +97,30 @@ class App extends React.Component {
     } = this.state;
     const newDownPaymentPercent = ((downPayment / homePrice) * 100);
     this.setState({ downPaymentPercent: newDownPaymentPercent });
+  }
+
+  updateMortgateInsuranceAndOther() {
+    const {
+      homePrice,
+      downPayment,
+      downPaymentPercent,
+    } = this.state;
+    const baseInsurance = Math.floor((homePrice - downPayment) * 0.000366);
+    if (downPaymentPercent < 5) {
+      this.setState({ mortgageInsuranceAndOther: baseInsurance + 250 });
+    }
+    if (downPaymentPercent < 10) {
+      this.setState({ mortgageInsuranceAndOther: baseInsurance + 175 });
+    }
+    if (downPaymentPercent < 15) {
+      this.setState({ mortgageInsuranceAndOther: baseInsurance + 100 });
+    }
+    if (downPaymentPercent < 20) {
+      this.setState({ mortgageInsuranceAndOther: baseInsurance });
+    }
+    if (downPaymentPercent >= 20) {
+      this.setState({ mortgageInsuranceAndOther: 0 });
+    }
   }
 
   updatePropertyTaxes() {
