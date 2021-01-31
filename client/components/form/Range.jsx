@@ -13,6 +13,7 @@ const RangeStyles = styled.input`
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  cursor: pointer;
 
   ::-webkit-slider-runnable-track {
     height: 2px;
