@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node server",
     "dev:start": "node database/seed/seed.js && webpack && nodemon server",
+    "nodemon": "nodemon server",
     "build:watch": " webpack --watch",
     "db:seed": "node database/seed/seed.js",
     "lint": "eslint .",

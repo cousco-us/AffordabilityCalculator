@@ -18,27 +18,35 @@ const generateFakeHouseData = () => {
   }
   return houses;
 };
-const createHouseRecords = (houseData) => db.House.insertMany(houseData);
+
 const seedHouses = async () => {
-  await createHouseRecords(generateFakeHouseData())
-    .then((newRecords) => console.log(`successfully created ${newRecords.length} new home records`))
-    .catch((err) => console.log('problem seeding homes: ', err));
+  try {
+    const rows = await generateFakeHouseData();
+    await db.House.insertMany(rows);
+    console.log(`Successfully seeded ${rows.length} House rows...`);
+  } catch (err) {
+    console.log('problem seeding taxes: ', err);
+  }
 };
 
-const createTaxRecords = (taxesData) => db.Tax.insertMany(taxesData);
 const seedTaxes = async () => {
-  await csv().fromFile(path.join(__dirname, 'taxes.csv'))
-    .then((json) => createTaxRecords(json))
-    .then((newRecords) => console.log(`successfully created ${newRecords.length} new tax records`))
-    .catch((err) => console.log('problem seeding taxes: ', err));
+  try {
+    const rows = await csv().fromFile(path.join(__dirname, 'taxes.csv'));
+    await db.Tax.insertMany(rows);
+    console.log(`Successfully seeded ${rows.length} Tax rows...`);
+  } catch (err) {
+    console.log('problem seeding taxes: ', err);
+  }
 };
 
-const createLoanRecords = (loansData) => db.Loan.insertMany(loansData);
 const seedLoans = async () => {
-  await csv().fromFile(path.join(__dirname, 'loans.csv'))
-    .then((json) => createLoanRecords(json))
-    .then((newRecords) => console.log(`successfully created ${newRecords.length} new loan records`))
-    .catch((err) => console.log('problem seeding loans: ', err));
+  try {
+    const rows = await csv().fromFile(path.join(__dirname, 'loans.csv'));
+    await db.Loan.insertMany(rows);
+    console.log(`Successfully seeded ${rows.length} Loan rows...`);
+  } catch (err) {
+    console.log('problem seeding taxes: ', err);
+  }
 };
 
 const seed = async () => {

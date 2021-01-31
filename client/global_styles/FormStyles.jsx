@@ -23,9 +23,9 @@ const FormStyles = styled.div`
     margin: 15px 0px;
   }
 
-  .form-control title-and-input {
+  // .form-control title-and-input {
 
-  }
+  // }
 
   .form-title {
     order: 1;
@@ -36,44 +36,32 @@ const FormStyles = styled.div`
     margin-left: auto;
   }
 
-  .form-control.slider {
-    width: 100%;
-  }
+  // .form-control.slider {
+  //   width: 100%;
+  // }
 
   .form-control.dropdown {
     margin-top: -7px;
   }
 
-  input[type=text] {
-    @import url(https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap);
-    font-family: 'Cabin', Arial, Helvetica, sans-serif;
-    letter-spacing: -0.1px;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 6px;
-    border-radius: 6px;
-    border: solid 0.01em rgb(205, 209, 212);
-    color: rgb(59, 65, 68);
-  }
+  // #input-control-home-price-input {
+  //   width: 112px;
+  // }
 
-  #input-control-home-price-input {
-    width: 112px;
-  }
+  // #input-control-down-payment-dollar-input {
+  //   width: 100px;
+  //   border-radius: 6px 0px 0px 6px;
+  // }
 
-  #input-control-down-payment-dollar-input {
-    width: 100px;
-    border-radius: 6px 0px 0px 6px;
-  }
+  // #input-control-down-payment-percent-input {
+  //   width: 56px;
+  //   border-radius: 0px 6px 6px 0px;
+  //   margin-left: -1px;
+  // }
 
-  #input-control-down-payment-percent-input {
-    width: 56px;
-    border-radius: 0px 6px 6px 0px;
-    margin-left: -1px;
-  }
-
-  #input-control-interest-rate-input {
-    width: 75px;
-  }
+  // #input-control-interest-rate-input {
+  //   width: 75px;
+  // }
 
   #input-control-interest-rate-dropdown-select {
     @import url(https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap);

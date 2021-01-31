@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 import FormStyles from '../global_styles/FormStyles';
 
 import Input from './form/Input';
-import Dropdown from './form/Dropdown';
 import Range from './form/Range';
-// import SRange from './form/SRange';
+import Dropdown from './form/Dropdown';
 
 const Form = ({
   homePrice, downPayment, downPaymentPercent, interestRate, loans, handleInputChange,
