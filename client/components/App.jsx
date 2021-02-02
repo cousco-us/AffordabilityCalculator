@@ -208,22 +208,22 @@ class App extends React.Component {
     } = this.state;
 
     const newDonutData = [];
-    let newStartingPoint = 25;
+    let currentStartingPoint = 25;
     let percentageFilled = 0;
 
-    const calculateStrokeOffset = (fill) => {
-      const oldStartingPoint = newStartingPoint;
+    const calculateStrokeDashOffset = (fill) => {
+      const oldStartingPoint = currentStartingPoint;
       percentageFilled += fill;
-      newStartingPoint += 100 - percentageFilled;
+      currentStartingPoint += 100 - percentageFilled;
       return String(oldStartingPoint);
     };
 
     donutData.forEach((obj) => {
       const newObj = obj;
       const moneyValue = this.state[obj.propName];
-      const strokeDash = donutOps.percentageSplit(moneyValue, estimatedPayment);
-      newObj.strokeDasharray = strokeDash.join(' ');
-      newObj.strokeDashoffset = calculateStrokeOffset(strokeDash[0]);
+      const strokeDashArray = donutOps.percentageSplit(moneyValue, estimatedPayment);
+      newObj.strokeDasharray = strokeDashArray.join(' ');
+      newObj.strokeDashoffset = calculateStrokeDashOffset(strokeDashArray[0]);
       newObj.moneyValue = moneyValue;
       newDonutData.push(newObj);
     });

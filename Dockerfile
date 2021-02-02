@@ -19,4 +19,3 @@ EXPOSE 3001
 
 # How do you start your app?
 CMD [ "npm", "run", "docker:start" ]
-# CMD ["npm", "start"]
