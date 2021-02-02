@@ -63,6 +63,7 @@ class App extends React.Component {
     }
     await this.calculatePrincipleAndInterest();
     await this.estimatePayment();
+    this.setState({ donutData: donutStarterData });
     this.buildDonutData();
   }
 
@@ -216,12 +217,15 @@ class App extends React.Component {
     let percentageFilled = 0;
 
     const calculateStrokeDashOffset = (fill) => {
+      // console.log(typeof fill)
       const oldStartingPoint = currentStartingPoint;
       percentageFilled += fill;
-      // currentStartingPoint += 100 - percentageFilled;
-      currentStartingPoint = fill * (1 - (percentageFilled/100));
+      currentStartingPoint += 100 - percentageFilled;
+      // currentStartingPoint += 150 - percentageFilled;
+      // currentStartingPoint += percentageFilled;
+      // currentStartingPoint += 100 - (percentageFilled / 100);
+      // currentStartingPoint = fill * (1 - (percentageFilled/100));
       return String(oldStartingPoint);
-      // return String(currentStartingPoint);
     };
 
     donutData.forEach((obj) => {
