@@ -140,7 +140,10 @@ class App extends React.Component {
 
   async initializeFromDb() {
     const { downPaymentPercent } = this.state;
-    await dbOps.getRandomHome()
+    // await dbOps.getRandomHome()
+    // const thing = await dbOps.getOneHome();
+    // console.log(thing)
+    await dbOps.getOneHome()
       .then((home) => {
         dbOps.getTaxByState(home.state)
           .then((tax) => {
@@ -209,13 +212,16 @@ class App extends React.Component {
 
     const newDonutData = [];
     let currentStartingPoint = 25;
+    // let currentStartingPoint = 0;
     let percentageFilled = 0;
 
     const calculateStrokeDashOffset = (fill) => {
       const oldStartingPoint = currentStartingPoint;
       percentageFilled += fill;
-      currentStartingPoint += 100 - percentageFilled;
+      // currentStartingPoint += 100 - percentageFilled;
+      currentStartingPoint = fill * (1 - (percentageFilled/100));
       return String(oldStartingPoint);
+      // return String(currentStartingPoint);
     };
 
     donutData.forEach((obj) => {

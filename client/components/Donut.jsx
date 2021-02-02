@@ -5,7 +5,7 @@ import DonutStyles from '../global_styles/DonutStyles';
 
 const Donut = ({ totalPayment, donutData }) => (
   <DonutStyles>
-    <svg viewBox="0 0 36 36">
+    <svg className="donutSvg" viewBox="0 0 36 36">
       <circle cx="18" cy="18" r="12" fill="#fff" role="presentation" />
       {
         donutData.map(({
