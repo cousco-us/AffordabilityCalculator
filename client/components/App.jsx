@@ -64,7 +64,7 @@ class App extends React.Component {
     await this.calculatePrincipleAndInterest();
     await this.estimatePayment();
     this.setState({ donutData: donutStarterData });
-    this.buildDonutData();
+    this.setDonutData();
   }
 
   async onHomePriceUpdate(value) {
@@ -136,7 +136,7 @@ class App extends React.Component {
   async initialize() {
     await this.initializeFromDb();
     await this.estimatePayment();
-    this.buildDonutData();
+    this.setDonutData();
   }
 
   async initializeFromDb() {
@@ -205,38 +205,13 @@ class App extends React.Component {
     this.setState({ estimatedPayment: estimate });
   }
 
-  buildDonutData() {
+  setDonutData() {
     const {
       donutData,
       estimatedPayment,
     } = this.state;
 
-    const newDonutData = [];
-    let currentStartingPoint = 25;
-    // let currentStartingPoint = 0;
-    let percentageFilled = 0;
-
-    const calculateStrokeDashOffset = (fill) => {
-      // console.log(typeof fill)
-      const oldStartingPoint = currentStartingPoint;
-      percentageFilled += fill;
-      currentStartingPoint += 100 - percentageFilled;
-      // currentStartingPoint += 150 - percentageFilled;
-      // currentStartingPoint += percentageFilled;
-      // currentStartingPoint += 100 - (percentageFilled / 100);
-      // currentStartingPoint = fill * (1 - (percentageFilled/100));
-      return String(oldStartingPoint);
-    };
-
-    donutData.forEach((obj) => {
-      const newObj = obj;
-      const moneyValue = this.state[obj.propName];
-      const strokeDashArray = donutOps.percentageSplit(moneyValue, estimatedPayment);
-      newObj.strokeDasharray = strokeDashArray.join(' ');
-      newObj.strokeDashoffset = calculateStrokeDashOffset(strokeDashArray[0]);
-      newObj.moneyValue = moneyValue;
-      newDonutData.push(newObj);
-    });
+    const newDonutData = donutOps.buildDonutData(donutData, estimatedPayment, this.state);
     this.setState({ donutData: newDonutData });
   }
 
