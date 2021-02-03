@@ -1,18 +1,17 @@
 import styled from 'styled-components';
 
 const DonutStyles = styled.div`
-// .donutSvg circle{
-//   transform: rotate(-90deg);
-// }
+.donutSvg {
+  transform: rotate(-90deg);
+}
 
 .donut-text {
     font: 16px/1.4em;
     fill: rgb(59, 65, 68);
-    -moz-transform: translateY(0.25em);
-    -ms-transform: translateY(0.25em);
-    -webkit-transform: translateY(0.25em);
-    transform: translateY(0.25em);
-
+    -moz-transform: translateY(-2.8em);
+    -ms-transform: translateY(-2.8em);
+    -webkit-transform: translateY(-2.8em);
+    transform: rotate(90deg) translateY(-2.8em);
   }
 
   .donut-label-amount {
@@ -24,7 +23,6 @@ const DonutStyles = styled.div`
     -ms-transform: translateY(-0.25em);
     -webkit-transform: translateY(-0.25em);
     transform: translateY(-0.25em);
-
   }
 
   .donut-label-unit {
