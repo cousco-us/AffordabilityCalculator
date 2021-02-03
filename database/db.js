@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 
 const url = process.env.PRODUCTION_DB || 'mongodb://localhost/calculator';
 
-mongoose.connect(
-  url,
-  (err) => (err ? console.log('====== ====== ====== ======\nUh-oh! looks like you have a Mongoose connection error:\n', err, '\n====== ====== ====== ======') : console.log('Successfully connected to Mongoose!')),
-  { useNewUrlParser: true, useUnifiedTopology: true },
-);
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 
